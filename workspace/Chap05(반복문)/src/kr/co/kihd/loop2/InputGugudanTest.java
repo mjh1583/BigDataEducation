@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class InputGugudanTest {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
