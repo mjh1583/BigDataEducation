@@ -3,8 +3,7 @@ package kr.co.kihd.practice02;
 import java.util.Scanner;
 
 public class RectangleCollision {
-//실습문제 8번
-	
+	//실습문제 8번
 	public static boolean inRect(int x, int y, int rectx1, int recty1, int rectx2, int recty2) {
 		if((x >= rectx1 && x <= rectx2) && (y >= recty1 && y <= recty2))
 			return true;
