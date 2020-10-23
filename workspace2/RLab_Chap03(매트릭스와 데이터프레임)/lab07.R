@@ -49,3 +49,11 @@ rm(y)
 rm(list = ls())  # 메모리의 변수를 모두 삭제
 
 load("save.Rdata")  # save.Rdata에 저장한 변수 불러옴
+
+x <- c(1, 2, 3)
+y <- c(4, 5, 6)
+z <- c(7, 8, 9)
+save(list = ls(), file = "save2.Rdata" )
+
+rm(list = ls())
+load("save2.Rdata")
