@@ -41,9 +41,10 @@ public class Time {
 
 
 	public void setMinute(int minute) {
+		//분에 대한 예외처리 코드를 작성
 		if(minute < 0 || minute > 59)
 		{
-			System.out.println("시간을 잘못 입력하셨습니다.");
+			System.out.println("분을 잘못 입력하셨습니다.");
 			return;
 		}
 		this.minute = minute;
@@ -56,9 +57,10 @@ public class Time {
 
 
 	public void setSecond(int second) {
+		//초에 대한 예외처리 코드를 작성
 		if(second < 0 || second > 59)
 		{
-			System.out.println("시간을 잘못 입력하셨습니다.");
+			System.out.println("초를 잘못 입력하셨습니다.");
 			return;
 		}
 		this.second = second;
