@@ -3,7 +3,7 @@ package kr.co.kihd.practice03;
 import java.util.Scanner;
 
 public class PrintAlphabet {
-
+	//실습문제 4번
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
