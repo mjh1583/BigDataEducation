@@ -1,0 +1,50 @@
+# xy플롯팅(plotting)
+# plot()함수를 이용하여 만든다.
+
+data()
+women
+
+w <- women$weight
+
+plot(w)
+
+h <- women$height
+plot(h)
+
+# par() : 그래프의 모양을 다양하게 조절 할 수 있는 그래프의 인수들을 설정, 조회하는 함수
+par(bg = 'yellow')
+par(fg = 'red')
+
+plot(h, w, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", sub = "미국의 70년대 기준")
+# l : 그래프 모양을 선으로 표시
+plot(h, w, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", sub = "미국의 70년대 기준", type = "l")
+# p : 그래프 모양을 점으로 표시
+plot(h, w, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", sub = "미국의 70년대 기준", type = "p")
+# b : 점과 선으로 표시한다.
+plot(h, w, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", sub = "미국의 70년대 기준", type = 'b')
+# h : 각 값을 수직선으로 표시
+plot(h, w, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", sub = "미국의 70년대 기준", type = 'h')
+# s : 계단형으로 표시
+plot(h, w, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", sub = "미국의 70년대 기준", type = 's')
+
+?plot
+
+# pch(plotting chatracter) 심벌
+?pch
+
+plot(0:10, 0:10, main = "PLOT", sub = "TEST", xlab = "x-label", ylab = "y-label", type = "n")
+
+par(bg = "transparent")
+par(bg = "white")
+
+# points() 함수 : 점을 그리는 함수
+p <- c(9, 1)
+points(p, pch = 1, cex = 2)
+points(p, pch = 2, cex = 2)
+points(p, pch = 3, cex = 2)
+points(p, pch = 23, cex = 2)
+
+weight <- women$weight
+height <- women$height
+
+plot(height, weight, xlab = "키", ylab = "몸무게", main = "여성의 평균 키와 몸무게", pch = 20, cex = 1.5, col = "blue", bg = "yellow")
