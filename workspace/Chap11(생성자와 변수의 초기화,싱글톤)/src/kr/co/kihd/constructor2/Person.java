@@ -12,16 +12,16 @@ public class Person {
 	}
 	
 	public Person(String name) {
-		this.name = name;
+		this.setName(name);
 	}
 	
 	public Person(int age) {
-		this.age = age;
+		this.setAge(age);
 	}
 	
 	public Person(String name, int age) {
-		this.name = name;
-		this.age = age;
+		this.setName(name);
+		this.setAge(age);
 	}
 
 	//접근자 메소드(getter)
