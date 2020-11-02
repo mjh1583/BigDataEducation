@@ -53,13 +53,13 @@ public class Student {
 		}
 		else {
 			System.out.println("시험번호를 잘못 입력하였습니다.");
-			return 0;
+			return -1;
 		}
 	}
 	//메서드3(getAverage) : 세개의 시험점수의 평균을 구하여 반환
 	public double getAverage()
 	{
-		return ((double)this.score1 + (double)this.score2 + (double)this.score3) / 3;
+		return ((double)this.score1 + (double)this.score2 + (double)this.score3) / 3.0;
 	}
 	
 	//학번, 이름, 시험점수, 시험평균 점수를 반환함
