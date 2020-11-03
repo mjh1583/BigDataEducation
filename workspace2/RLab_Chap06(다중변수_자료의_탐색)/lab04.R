@@ -50,6 +50,7 @@ qplot(data = mpg, y = hwy, x = drv, geom = "boxplot", colour = drv)
 help(qplot)
 ?qplot
 
+# 1. 데이터 불러오기
 # 엑셀 데이터 불러오기
 # readxl 패키지 설치 
 install.packages("readxl")
@@ -59,3 +60,127 @@ library(readxl)
 # 엑셀 파일 불러오기
 df_finalexam <- read_excel("finalexam.xlsx", sheet = 1, col_names = T)
 View(df_finalexam)
+
+mean(df_finalexam$math)
+mean(df_finalexam$history)
+mean(df_finalexam$english)
+
+# 첫번째 행 변수명으로 로드 x
+df_finalexam <- read_excel("finalexam.xlsx", sheet = 1, col_names = F)
+df_finalexam
+View(df_finalexam)
+
+# csv (Comma Separated Values) 파일 불러오기
+# - 범용 데이터 형식
+# - 값 사이를 쉼표(,)로 구분
+# - 용량 작음, 다양한 소프트웨어에서 사용
+ 
+df_csvexam <- read.csv("csv_exam.csv", header = T)
+df_csvexam
+
+# csv로 저장하기
+write.csv(df_finalexam, file = "output_newdata.csv")
+
+df_exam_sheet <- read_excel("excel_exam_sheet.xlsx", sheet = 3, col_names = T)
+df_exam_sheet
+
+# 2. 데이터 수정하기
+# dplyr 패키지 설치 & 로드
+install.packages("dplyr")
+library(dplyr)
+
+# 데이터 프레임 생성
+df_raw <- data.frame(var1 = c(1,2,3), var2 = c(2,3,2))
+df_raw
+# 2.1 데이터 프레임 복사본 만들기
+df_new <- df_raw    #복사본 생성
+df_new
+# 2.2 변수명 바꾸기
+# '새변수명 = 기존변수명' 순서로 입력함
+df_new <- rename(df_new, variable2 = var2)
+df_new
+df_raw
+
+# Q1. 
+mpg <- as.data.frame(ggplot2::mpg)
+mpg_new <- mpg
+mpg_new
+
+# Q2. 
+mpg_new <- rename(mpg_new, highway = hwy)
+mpg_new <- rename(mpg_new, city = cty)
+
+# Q3. 
+head(mpg_new)
+head(mpg)
+
+# 변수 조합해 파생변수 만들기
+# 데이터 프레임 생성
+df <- data.frame(var1 = c(4,3,8), var2 = c(2,6,1))
+df
+# var_sum 파생변수 생성
+df$var_sum <- df$var1 + df$var2
+df
+
+# var_mean 파생변수 생성(더해서 2로 나눔)
+df$var_mean <- df$var_sum / 2
+df
+
+# mpg 통합 연비 변수 만들기
+mpg$total <- (mpg$cty + mpg$hwy) / 2
+head(mpg)
+
+mean(mpg$total)
+
+# 조건문을 활용해 파생변수 만들기
+# 1. 기준값 정하기
+summary(mpg$total)
+hist(mpg$total)
+
+# 2. 조건문으로 합격 판정 변수 만들기
+mpg$test <- ifelse(mpg$total >= 20, "pass", "fail")
+head(mpg, 20)
+
+# 3. 빈도표로 합격판정 자동차수 살펴보기
+table(mpg$test)
+
+# 4. 막대 그래프로 빈도 표시하기
+qplot(mpg$test)
+
+# 5. total을 기준으로 A,B,C 등급부여
+mpg$grade <- ifelse(mpg$total >= 30, "A", ifelse(mpg$total >=20 , "B", "C"))
+head(mpg, 20)
+
+table(mpg$grade)
+qplot(mpg$grade)
+
+mpg$grade <- ifelse(mpg$total >= 30, "A", ifelse(mpg$total >=25 , "B", ifelse(mpg$total >= 20, "C", "D")))
+head(mpg, 20)
+
+table(mpg$grade)
+qplot(mpg$grade)
+
+
+# p.123 분석도전
+# Q1.
+mid <- as.data.frame(ggplot2::midwest)
+str(mid)
+summary(mid)
+head(mid)
+dim(mid)
+# Q2.
+mid <- rename(mid, total = poptotal)
+mid <- rename(mid, asian = popasian)
+head(mid)
+# Q3.
+mid$asianPer <- (mid$asian / mid$total) * 100
+head(mid)
+hist(mid$asianPer)
+# Q4.
+asiantotal <- sum(mid$asianPer) / 437
+mid$grade <- ifelse(asiantotal > mid$asianPer, "large", "small")
+head(mid)
+# Q5.
+table(mid$grade)
+qplot(mid$grade)
+
