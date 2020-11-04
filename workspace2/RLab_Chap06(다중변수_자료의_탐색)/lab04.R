@@ -168,6 +168,7 @@ str(mid)
 summary(mid)
 head(mid)
 dim(mid)
+View(mid)
 # Q2.
 mid <- rename(mid, total = poptotal)
 mid <- rename(mid, asian = popasian)
@@ -175,6 +176,7 @@ head(mid)
 # Q3.
 mid$asianPer <- (mid$asian / mid$total) * 100
 head(mid)
+?hist
 hist(mid$asianPer)
 # Q4.
 asiantotal <- sum(mid$asianPer) / 437

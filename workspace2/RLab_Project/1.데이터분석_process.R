@@ -19,7 +19,14 @@
 #           => 너무 높게 잡으면 : 대상이 적어 효과가 감소
 #           => 너무 낮게 잡으면 : 수익률 감소, 고객의 클레임 발생
 
-# 지역코그(LAWD_CD) 목록 생성
+
+# 가설 : 아파트 실거래 데이터를 활용한 미래가격 예상 
+# API를 활용한 데이터 수집
+# Application Programming Interface
+# API를 호출하여 기능을 사용함(공공데이터 API를 호출하여 데이터 수집)
+
+
+# 지역코드(LAWD_CD) 목록 생성
 library(dplyr)
 region_cd <- read.csv("region_cd.csv")
 View(region_cd)
