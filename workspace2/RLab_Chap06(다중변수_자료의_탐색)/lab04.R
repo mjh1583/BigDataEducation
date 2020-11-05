@@ -168,7 +168,6 @@ str(mid)
 summary(mid)
 head(mid)
 dim(mid)
-View(mid)
 # Q2.
 mid <- rename(mid, total = poptotal)
 mid <- rename(mid, asian = popasian)
@@ -179,10 +178,9 @@ head(mid)
 ?hist
 hist(mid$asianPer)
 # Q4.
-asiantotal <- sum(mid$asianPer) / 437
-mid$grade <- ifelse(asiantotal > mid$asianPer, "large", "small")
+mid$mean <- mean(mid$asianPer)
+mid$grade <- ifelse(mid$asianPer >= mid$mean, "large", "small")
 head(mid)
 # Q5.
 table(mid$grade)
 qplot(mid$grade)
-
