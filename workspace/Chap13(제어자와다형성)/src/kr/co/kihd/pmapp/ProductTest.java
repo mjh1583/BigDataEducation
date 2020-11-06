@@ -38,8 +38,10 @@ public class ProductTest {
 					addProduct(type);
 					break;
 				case 2:
+					System.out.println("----------------------------------------");
 					for(int i = 0; i < numberOfProduct; i++) {
 						product[i].showInfo();
+						System.out.println("----------------------------------------");
 					}
 					break;
 				case 3:
@@ -53,7 +55,52 @@ public class ProductTest {
 	}
 
 	public static void addProduct(int type) {
+		scan.nextLine();
+		System.out.print("상품설명 >> ");
+		String desc = scan.nextLine();
+		System.out.print("생산자 >> ");
+		String maker = scan.nextLine();
+		System.out.print("가격 >> ");
+		int price = scan.nextInt();
 		
+		switch(type) {
+			case 1 :
+				scan.nextLine();
+				System.out.print("일반책 제목 >> ");
+				String title = scan.nextLine();
+				System.out.print("저자 >> ");
+				String author = scan.nextLine();
+				System.out.print("국제표준도서번호(ex.0001) >> ");
+				int ISBN = scan.nextInt();
+				
+				//필드의 다형성(조상타입의 배열에 자손의 인스턴스를 담고 있음)
+				product[numberOfProduct] = new Book(productID++, desc, maker, price, ISBN, title, author); 
+				break;
+			case 2 :
+				scan.nextLine();
+				System.out.print("앨범 제목 >> ");
+				String albumTitle = scan.nextLine();
+				System.out.print("가수 >> ");
+				String artist = scan.nextLine();
+				
+				product[numberOfProduct] = new CompactDisk(productID++, desc, maker, price, albumTitle, artist);
+				break;
+			case 3 :
+				scan.nextLine();
+				System.out.print("회화책 제목 >> ");
+				String title2 = scan.nextLine();
+				System.out.print("저자 >> ");
+				String author2 = scan.nextLine();
+				System.out.print("언어 >> ");
+				String language = scan.nextLine();
+				System.out.print("국제표준도서번호(ex.0001) >> ");
+				int ISBN2 = scan.nextInt();
+				
+				product[numberOfProduct] = new ConversationBook(productID++, desc, maker, price, ISBN2, title2, author2, language);
+				break;
+		}
+		numberOfProduct++;
+			
 	}
 	
 }
