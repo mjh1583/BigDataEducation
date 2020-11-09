@@ -45,17 +45,18 @@ API_KEY <- "vnQ8qzCuLWxE4VOBh15IyPY3IItPKTsswJ%2BVAbEtKvYJHVJg39ySWWmzUl0ndH8vLn
 for(i in LAWD_CD$code5){
   print
   for(l in DEAL_YMD){
-    url <- paste0("http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?LAWD_CD", i, "&DEAL_YMD=", l,"&ServiceKey=", API_KEY)
+    url <- paste0("http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?LAWD_CD=", i, "&DEAL_YMD=", l,"&ServiceKey=", API_KEY)
     raw.data <- xmlTreeParse(url, useInternalNodes = T)
     raw.data
     xml_rootNode <- try(xmlRoot(raw.data))
     xml_rootNode
-    xml_result <- xmlToDataFrame(xml_rootNode[[2]][['items']])
-    df <- rbind(df, xml_result)
+    # xml_result <- xmlToDataFrame(xml_rootNode[[2]][["items"]])
+    df <- xmlToDataFrame(getNodeSet(xml_rootNode, "/items"))
+    # df <- rbind(df, xml_result)
   }
 }
-df
 
+df
 
 
 
