@@ -30,3 +30,4 @@ plot(x, y, main = "선형적 상관관계를 갖는 난수", xlab = "x", ylab = 
 ggplot(data = mpg, aes(x = cty, y = hwy)) + geom_point()
 # Q2
 ggplot(data = midwest, aes(x = poptotal, y = popasian)) + geom_point() + xlim(0, 500000) + ylim(0, 10000)
+
