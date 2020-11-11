@@ -10,6 +10,7 @@ public class SubStringTest {
 		String str1 = phoneNum.substring(3);
 		System.out.println(str1);
 		
+		//마지막 인덱스는 미포함.
 		String str2 = phoneNum.substring(0, 3);
 		System.out.println(str2);
 		
