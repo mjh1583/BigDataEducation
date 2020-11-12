@@ -21,3 +21,19 @@ ggplot(data = mpg, aes(x = drv)) + geom_bar()
 
 # x축 연속 변수, y축 빈도
 ggplot(data = mpg, aes(x = hwy)) + geom_bar()
+
+# 혼자서 해보기
+# Q1
+mpg <- as.data.frame(ggplot2 :: mpg)
+# 집단별 평균표 구하기
+mpg_suv <- mpg %>% 
+  group_by(manufacturer) %>%
+  filter(class == "suv") %>%
+  summarise(mean_cty = mean(cty)) %>% 
+  arrange(desc(mean_cty)) %>% 
+  head(5)
+  
+ggplot(data = mpg_suv, aes(x = reorder(manufacturer, -mean_cty), y = mean_cty)) + geom_col()
+
+# Q2
+ggplot(data = mpg, aes(x = class)) + geom_bar()
