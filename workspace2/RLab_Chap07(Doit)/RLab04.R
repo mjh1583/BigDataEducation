@@ -48,8 +48,4 @@ table(is.na(mpg$drv))
 
 # Q2
 mpg %>% filter(!is.na(hwy)) %>% group_by(drv) %>% summarise(mean_hwy = mean(hwy)) %>% arrange(desc(mean_hwy))
-
-
-
-
-
+                                                                                              
