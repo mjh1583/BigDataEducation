@@ -75,7 +75,7 @@ text(st$Illiteracy, st$Murder,
 head(mtcars)
 mosaicplot(~gear + vs,     #대상변수 지정함. ~다음변수가 x축 방향 표시, +다음변수가 y축 방향 표시
            data = mtcars,  #대상 데이터셋 지정함.
-           color = TRUE,   #y축 변수의 그룹별 음영을 달리 표시
+           color = c("green", "blue"),   #y축 변수의 그룹별 음영을 달리 표시
            main = "기어와 엔진"
            )
 
@@ -83,25 +83,3 @@ mosaicplot(~gear + vs,     #대상변수 지정함. ~다음변수가 x축 방향
 # 기어의 개수가 5개는 드물다.
 # 엔진의 형태는 0,1 정도가 반반정도 된다.
 # 기어의 개수가 홀수인 경우는 0타입이 많고, 짝수인 경우 1이 훨씬 많다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
