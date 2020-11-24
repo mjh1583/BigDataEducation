@@ -7,7 +7,7 @@ public class InputStreamReadTest02 {
 	
 	public static void main(String[] args) throws Exception {
 		
-		InputStream iStream = new FileInputStream("C:\\workspace\\test4.txt");
+		InputStream iStream = new FileInputStream("C:\\workspace\\new 1.txt");
 		
 		int readByteNo;
 		byte[] bytes = new byte[3];
