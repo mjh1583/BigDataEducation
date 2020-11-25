@@ -24,9 +24,19 @@ public class FileInputStreamTest {
 		
 		int data;
 		int i = 0;
-		while( (data = fis.read()) != -1) {
+		byte[] bArr = new byte[1000];
+		//한 바이트씩 읽기
+		while( (data = fis.read(bArr)) != -1) {
+			//한글은 깨짐
+			//System.out.print((char)data);
+			
+			/*
+			 * 콘솔 출력(System.out.println())을 사용해도 무방하나,
+			 * 1바이트씩 읽다 보니 한글이 깨지기 때문에 write()를 사용해도 괜찮음.
+			 * write()도 역시 출력스트림이기 때문에 가능한 것이다.
+			 */
+			System.out.write(bArr);   //콘솔에 write
 			i++;
-			System.out.write(data);   //콘솔에 write
 		}
 		System.out.println("루핑 수 : " + i);
 		
