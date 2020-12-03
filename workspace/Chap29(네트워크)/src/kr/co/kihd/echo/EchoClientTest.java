@@ -3,6 +3,8 @@ package kr.co.kihd.echo;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class EchoClientTest {
@@ -20,9 +22,28 @@ public class EchoClientTest {
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader bff = new BufferedReader(isr);
 		
-		String serverMsg = "";
+		OutputStream os = socket.getOutputStream();
+		PrintWriter pout = new PrintWriter(os, true);
+		
+		//키보드로부터 데이터를 입력받는 스트림
+		InputStreamReader inR = new InputStreamReader(System.in);
+		BufferedReader pout2 = new BufferedReader(inR);
+		
+		String serverMsg = "", sendMsg = "";
+		
 		serverMsg = bff.readLine();
 		System.out.println("서버메시지> " + serverMsg);
+		
+		
+		while((sendMsg = pout2.readLine()) != null) {
+			pout.println(sendMsg);
+			
+			serverMsg = bff.readLine();
+			System.out.println("서버메시지> " + serverMsg);
+		}
+		
+		pout.close();
+		os.close();
 		
 		bff.close();
 		isr.close();

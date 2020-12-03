@@ -1,10 +1,14 @@
 package kr.co.kihd.echo;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Date;
 
 public class EchoServerTest {
 	
@@ -25,6 +29,29 @@ public class EchoServerTest {
 			PrintWriter pout = new PrintWriter(os, true);  //flush()기능 자동으로 제공
 			
 			pout.println("하이!!");
+			
+			InputStream is = socket.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader br = new BufferedReader(isr);
+			
+			String clientMsg = "";
+			
+			while((clientMsg = br.readLine()) != null) {
+				if(clientMsg.startsWith("안녕") || clientMsg.startsWith("하이")) {
+					pout.println(socket.getInetAddress() + "님 반갑습니다..^^");
+				}
+				else if(clientMsg.startsWith("오늘은 몇일")) {
+					Date today = new Date();
+					pout.println(today.toString());
+				}
+				else {
+					pout.println("======줄바꿈======");
+				}
+			}
+			
+			br.close();
+			isr.close();
+			is.close();
 			
 			pout.close();
 			os.close();
