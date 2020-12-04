@@ -6,9 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -32,6 +33,7 @@ public class ChatClient extends JFrame implements Runnable, ActionListener {
 	private PrintWriter pw;
 	
 	public ChatClient() {
+		super("채팅 프로그램");
 		input = new JTextField(15);
 		output = new JTextArea();
 		JScrollPane scroll = new JScrollPane(output);
@@ -76,16 +78,34 @@ public class ChatClient extends JFrame implements Runnable, ActionListener {
 			nickName = "guest";
 		}
 		
-		//소켓 생성...
+		//소켓 생성
 		try {
 			socket = new Socket(serverIP, 9900);
+			
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+			
+			//서버에 보내기
+			pw.println(nickName);
+			pw.flush();
+			
 		} catch (UnknownHostException e) {
+			System.out.println("서버를 찾을 수 없습니다.");
 			e.printStackTrace();
 		} catch (IOException e) {
+			System.out.println("서버와 연결이 안되었습니다.");
 			e.printStackTrace();
 		}
 		
-	}
+		//이벤트
+		send.addActionListener(this);
+		input.addActionListener(this);
+		
+		//스레드 생성
+		Thread thread = new Thread(this);
+		thread.start();
+		
+	}//service()
 	
 	public static void main(String[] args) {
 		
@@ -95,12 +115,39 @@ public class ChatClient extends JFrame implements Runnable, ActionListener {
 
 	@Override
 	public void run() { //스레드 처리
+		//서버로부터 받는 쪽
+		String line = null;
+		
+		while(true) {
+			try {
+				line = br.readLine();
+				
+				if(line == null || line.toLowerCase().equals("exit")) {
+					br.close();
+					pw.close();
+					socket.close();
+					System.exit(0);
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			//사용자로부터 입력받은 내용을 JTextArea에 붙여줌.
+			output.append(line + "\n");
+			int pos = output.getText().length();
+			output.setCaretPosition(pos);    //맨아래로 스크롤함.
+			
+		}//while
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) { //액션 처리
-		
+		//서버로 보내기
+		String line = input.getText();
+		pw.println(line);
+		pw.flush();
+		input.setText("");   //텍스트필드 초기화
 	}
 	
 }
