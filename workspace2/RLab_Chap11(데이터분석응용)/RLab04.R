@@ -4,7 +4,7 @@ library(ggmap)
 library(ggplot2)
 
 # 구글 지도 API키 설정
-register_google(key = "AIzaSyDdfoNg3z3_dp1TVM8jv9TFqOaq57eBN9c")
+register_google(key = "")
 
 # 37.5722161,126.9736984
 
@@ -58,7 +58,7 @@ library(ggmap)
 library(ggplot2)
 
 # 구글 지도 API키 설정
-register_google(key = "AIzaSyDdfoNg3z3_dp1TVM8jv9TFqOaq57eBN9c")
+register_google(key = "")
 
 # 지역명
 names <- c("도담삼봉/석문", "구담봉/옥순봉", "사인암", "하선암", "중선암", "상선암")
