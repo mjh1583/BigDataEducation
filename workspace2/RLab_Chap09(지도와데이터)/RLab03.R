@@ -1,6 +1,6 @@
 # 3. 지도위에 마커와 텍스트 표시
 # library(ggmap)
-# register_google(key = "AIzaSyDdfoNg3z3_dp1TVM8jv9TFqOaq57eBN9c")
+# register_google(key = "")
 
 # 1)지도의 중심지점에 마커 표시
 # 지점의 경도와 위도
