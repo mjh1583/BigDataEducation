@@ -115,7 +115,7 @@ gmap + geom_text(data = df,
 install.packages("readxl")
 library(readxl)
 
-earthquake <- read_xlsx("2020.xlsx")
+earthquake <- read_xlsx("20200101_20201203.xlsx")
 View(earthquake)
 
 df <- earthquake
@@ -124,33 +124,46 @@ head(df)
 tail(df)
 
 # 데이터 정제 : 엑셀시트 원본에 있는 위도 숫자 뒤의 "N" 제거, 경도 숫자 뒤의 "E" 제거
-df[, 5] <- gsub("N", "", df[, 5])
-df
-df[, 6] <- gsub("E", "", df[, 6])
-df
-
-df$'5' <- as.numeric(gsub("N", "", df$'5'))
-df$'5'
-df$'6' <- as.numeric(gsub("E", "", df$'6'))
-df$'6'
-
-df2 <- data.frame(lon = df[, 6], lat = df[, 5], mag = df[, 3])
+df2 <- data.frame(lon = df[, 5], lat = df[, 6], mag = df[, 3])
 str(df2)
 df2
 
-cen <- c((max(df2$X6) + min(df2$X6))/2, (max(df2$X5) + min(df2$X5))/2)
+df2[, 1] <- gsub("N", "", df2[, 1])
+df2[, 2] <- gsub("E", "", df2[, 2])
+str(df2)
+
+# 내가 한 데이터 변환 : 이렇게 해도 상관없음
+# df2$위도 <- as.numeric(gsub("N", "", df2$위도))
+# df2$위도
+# df2$경도 <- as.numeric(gsub("E", "", df2$경도))
+# df2$경도
+
+install.packages("writexl")
+library(writexl)
+write_xlsx(df2, path = "df2.xlsx")
+
+# Factor로 되어 있는 데이터 유형을 계산이 가능한 숫자형으로 변환
+df2[, 1] <- as.numeric(as.character(df2[, 1]))
+df2[, 2] <- as.numeric(as.character(df2[, 2]))
+df2[, 3] <- as.numeric(as.character(df2[, 3]))
+str(df2)
+
+cen <- c((max(df2$경도) + min(df2$경도))/2, (max(df2$위도) + min(df2$위도))/2)
 cen
 
+# 지도 정보 저장
 map <- get_googlemap(center = cen,
                      maptype = "roadmap",
                      zoom = 6)
 
+# 지도 출력
 ggmap(map)
 
 gmap <- ggmap(map)
 
+# 지도위에 점(도형) 표시
 gmap + geom_point(data = df2,
-                  aes(x = X6, y = X5, size = X3),
+                  aes(x = 경도, y = 위도, size = 규모),
                   col = "red",
                   alpha = 0.5
                   ) +
