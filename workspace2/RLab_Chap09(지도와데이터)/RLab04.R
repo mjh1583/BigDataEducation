@@ -3,7 +3,7 @@
 # 데이터 준비
 library(ggplot2)
 library(ggmap)
-register_google(key = "AIzaSyDdfoNg3z3_dp1TVM8jv9TFqOaq57eBN9c")
+register_google(key = )
 
 head(wind)
 dim(wind)
