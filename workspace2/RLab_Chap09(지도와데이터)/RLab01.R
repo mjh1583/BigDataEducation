@@ -11,7 +11,7 @@ library(ggmap)
 library(dplyr)
 
 # 구글키 등록
-register_google(key = "AIzaSyDdfoNg3z3_dp1TVM8jv9TFqOaq57eBN9c")
+register_google(key = "")
 
 # 1.서울시 종로구 근방의 지도 보기
 # 지점의 경도 위도
