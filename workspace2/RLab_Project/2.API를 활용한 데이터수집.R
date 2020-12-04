@@ -40,7 +40,7 @@ DEAL_YMD
 install.packages("XML")
 library(XML)
 
-API_KEY <- "vnQ8qzCuLWxE4VOBh15IyPY3IItPKTsswJ%2BVAbEtKvYJHVJg39ySWWmzUl0ndH8vLnqdD%2F64culCtcSWf4NPCg%3D%3D"
+API_KEY <- ""
 
 for(i in LAWD_CD$code5){
   print
