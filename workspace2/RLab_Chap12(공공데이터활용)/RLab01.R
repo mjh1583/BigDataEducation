@@ -28,7 +28,7 @@ library(ggmap)
 api <- "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst"
 
 # API 키(공공데이터 포털에서 승인 받은 키) 
-api_key <- "vnQ8qzCuLWxE4VOBh15IyPY3IItPKTsswJ%2BVAbEtKvYJHVJg39ySWWmzUl0ndH8vLnqdD%2F64culCtcSWf4NPCg%3D%3D"
+api_key <- ""
 
 # 한 페이지에 표현할 데이터 행의 수
 numOfRows <- 10
