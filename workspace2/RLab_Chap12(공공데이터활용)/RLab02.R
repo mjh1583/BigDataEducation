@@ -17,7 +17,7 @@ library(ggmap)
 
 api <- "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst"
  
-api_key <- "vnQ8qzCuLWxE4VOBh15IyPY3IItPKTsswJ%2BVAbEtKvYJHVJg39ySWWmzUl0ndH8vLnqdD%2F64culCtcSWf4NPCg%3D%3D"
+api_key <- ""
 
 numOfRows <- 10
 pageNo <- 1
@@ -46,7 +46,7 @@ pm <- df[1, 4:20]
 pm
 
 # 지역별 미세먼지 농도의 지도 출력
-register_google(key = "AIzaSyDdfoNg3z3_dp1TVM8jv9TFqOaq57eBN9c")
+register_google(key = "")
 
 cities <- c("서울시", "부산시", " 대구시", "인천시", "광주시", "대전시", "울산시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주시", "세종")
 
