@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>동영상</title>
+</head>
+<body>
+	<!-- 동영상의 확장자에 따라서 브라우저에서 지원하는 것도 있고 없는 것도 있음.
+		 poster 속성 : 동영상이 로딩될 때까지 설정한 이미지를 표시하게끔 해주는 속성임. -->
+	<!-- <video width="480" height="300" src="./media/Wildlife.mp4" controls></video> -->
+	<video width="480" height="300" autoplay controls poster="images/Penguins.png">
+		<source src="./media/Wildlife.mp4" type="video/mp4">
+		<source src="./media/Wildlife.webm" type="video/webm">
+	</video>
+</body>
+</html>

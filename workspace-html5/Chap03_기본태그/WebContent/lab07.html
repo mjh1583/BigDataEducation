@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>오디오</title>
+</head>
+<body>
+	<!-- 해당 브라우저가 mp3를 지원한다면 아래 한줄만 프로그래밍을 하면 끝난다.
+		 만약 브라우저가 mp3를 지원안한다면 source태그를 이용해서 여러개의 파일을 나열하면 됨. -->
+	<!-- <audio src="./media/Kalimba.mp3" controls></audio> -->
+	<audio autoplay controls>
+		<source src="./media/Kalimba.mp3" type="audio/mp3">
+		<source src="./media/Kalimba.ogg" type="audio/ogg">
+	</audio>
+</body>
+</html>
