@@ -28,7 +28,7 @@ library(ggmap)
 api <- "http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst"
 
 # API 키(공공데이터 포털에서 승인 받은 키) 
-api_key <- ""
+api_key <- "vnQ8qzCuLWxE4VOBh15IyPY3IItPKTsswJ%2BVAbEtKvYJHVJg39ySWWmzUl0ndH8vLnqdD%2F64culCtcSWf4NPCg%3D%3D"
 
 # 한 페이지에 표현할 데이터 행의 수
 numOfRows <- 10
@@ -45,3 +45,72 @@ dataGubun <- "HOUR"
 # 요청데이터 기간 : 한달간
 searchCondition <- "MONTH"
 
+# URL 작성
+# API에 매개변수 = 매개변수 값
+# 첫번째 매개변수 앞에는 '?', 두번째부터는 '&'
+url <- paste(api, 
+             "?serviceKey=", api_key,
+             "&numOfRows=", numOfRows,
+             "&pageNo=", pageNo,
+             "&itemCode=", itemCode,
+             "&dataGubun=", dataGubun,
+             "&searchCondition=", searchCondition,
+             sep = "")
+
+url
+
+# API호출(XML 문서로 다운로드 받음)
+# xmlParse() : XML 또는 HTML 파일에 대해 R에서 인식하는 구조로 변환
+xmlFile <- xmlParse(url)
+
+# 다운로드 받은 XML문서 확인
+# xmlRoot() : XML 문서 객체의 루트 노드에 접근하는 기능 제공
+#             매개변수 -- XML 문서 객체
+xmlRoot(xmlFile)
+
+# ----------------------------------------------------------------------------------------------------
+
+# R : XML문서를 데이터프레임으로 변환
+
+# items 노드 내에 여러 item 노드들을 데이터 프레임으로 변환
+# xmlToDataFrame() : XML 문서로부터 데이터 추출
+df <- xmlToDataFrame(getNodeSet(xmlFile, "//items/item"))
+df
+# 시간대별 각 지역 미세먼지 농도 확인
+
+# -----------------------------------------------------------------------------------------------------
+# R : 미세먼지 농도의 그래프
+ggplot(data = df, aes(x = dataTime, y = gyeongbuk)) + 
+  geom_bar(stat = "identity", fill = "green") 
+
+# geom_bar() : 막대 그래프로 출력
+# 매개변수 - stat = identity : 막대 높이를 데이터에 맞추어 출력 / bin : 데이터 그룹별 분류
+#            fill = 막대그래프 색상
+
+# 라벨 수정
+ggplot(data = df, aes(x = dataTime, y = gyeongbuk)) + 
+  geom_bar(stat = "identity", fill = "green") +
+  theme(axis.title.x = element_text(angle = 90), axis.text.x = element_text(angle = 90)) + # x축 눈금 라벨 회전 각도
+  labs(title = "시간대별 경북지역의 미세먼지 농도 변화", x = "측정일시", y= "농도")
+
+# 막대 색
+ggplot(data = df, aes(x = dataTime, y = gyeongbuk, fill = dataTime)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.title.x = element_text(angle = 90), axis.text.x = element_text(angle = 90)) + # x축 눈금 라벨 회전 각도
+  labs(title = "시간대별 경북지역의 미세먼지 농도 변화", x = "측정일시", y= "농도") + 
+  scale_fill_manual(values = rainbow(10))
+
+# 범례삭제
+ggplot(data = df, aes(x = dataTime, y = gyeongbuk, fill = dataTime)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90), legend.position = "none") + # x축 눈금 라벨 회전 각도
+  labs(title = "시간대별 경북지역의 미세먼지 농도 변화", x = "측정일시", y= "농도") + 
+  scale_fill_manual(values = rainbow(10))
+
+# 가로 막대 출력
+ggplot(data = df, aes(x = dataTime, y = gyeongbuk, fill = dataTime)) + 
+  geom_bar(stat = "identity") +
+  theme(legend.position = "none") + # x축 눈금 라벨 회전 각도
+  labs(title = "시간대별 경북지역의 미세먼지 농도 변화", x = "측정일시", y= "농도") + 
+  scale_fill_manual(values = rainbow(10)) +
+  coord_flip() # 가로출력 : 그래프의 수평과 수직 축을 서로 바꿈
