@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>폼태그</title>
+</head>
+<body>
+	<!-- action 속성 : 이동할 페이지를 지정하는 것 -->
+	<!-- method 속성 : 1)get방식 = url창에 사용자가 입력한 내용을 다 보여줌(보안에 취약)
+					  2)post방식 = url창에 사용자가 입력한 내용을 보여주지 않음(보안에 강함) -->
+	<form action="#" method="post">
+		<!-- 사용자가 입력하는 입력 양식 -->
+		<!-- name : 페이지 이동할때 이동한 페이지에서 참조하는 값 -->
+		아이디 : <input type="text" name="id" /><br/>
+		비밀번호 : <input type="password" name="passwd" /><br/>
+		<!-- radio 버튼 : 1개만 선택할 수 있도록 name 속성값을 동일하게 정해야함.
+			 value값 : 이동한 페이지에서 참조하는 실제값 -->
+		성별 남 <input type="radio" name="gender" value="man" />
+		여 <input type="radio" name="gender" value="woman" /><br/>
+		<!-- checkbox : 다중 선택이 가능한 입력양식이며 반드시 name이 동일해야함.
+			 value값 : 이동한 페이지에서 참조하는 실제값  -->
+		취미 독서<input type="checkbox" name="hobby" value="reading" />
+		운동<input type="checkbox" name="hobby" value="health" />
+		코딩<input type="checkbox" name="hobby" value="coding" /><br/>
+		<input type="file" name="file" /><br/>
+		<!-- hidden : 사용자에게 보이지 않는 입력양식 = 통상 접속일시, 회원가입일시를 저장할때 사용함. -->
+		<input type="hidden" name="hidden" value="09:36" /><br/>
+		<input type="button" name="button" value="버튼" /><br/>
+		<input type="reset" value="초기화" /><br/>
+		<input type="submit" value="전송" /><br/>
+		<input type="image" src="images/Penguins.png">
+	</form>
+</body>
+</html>
