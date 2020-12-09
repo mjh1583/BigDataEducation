@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/* 외부 스타일 시트 정의 */
+ul {
+	color: red; /* 목록의 글자색을 파란색 */
+	list-style-type: none; /* 불릿의 형태를 없애는 것 */
+	list-style-type: square; /* 불릿의 형태를 사각형으로 함 */
+	/* padding: 0px; */ /* 안쪽 여백 설정 */
+}
+img {
+	border: 2px solid yellow; /* 테두리 설정 */
+}
+h1 {
+	border-bottom-style: dotted;
+	width: 202px;
+}
