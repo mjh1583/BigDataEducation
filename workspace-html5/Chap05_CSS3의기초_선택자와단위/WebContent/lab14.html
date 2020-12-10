@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3의 기초-14(속성 선택자-6)</title>
+	<style type="text/css">
+		ul {
+			list-style-type: none;
+		}
+		a {
+			line-height: 30px;  /* 블럭형태로 display 되어 있는 것의 높이를 조절함 */
+			font-size: 15px;
+			color: blue;
+			text-decoration: none;
+		}
+		/* $= 선택자 : 지정한 문자로 끝나는 요소에 스타일을 적용시킴 */
+		a[href $= "hwp"] { /* 확장자가 hwp로 끝나는 곳에 스타일 적용 */
+			background: url(images/hwp_icon.gif) no-repeat right;
+			padding-right: 25px;
+		}
+		a[href $= "xls"] {
+			background: url(images/excel_icon.gif) no-repeat right;
+			padding-right: 25px;
+		}
+	</style>
+</head>
+<body>
+	<h2>회사소개 파일 다운받기</h2>
+	<ul>
+		<li><a href="intro.hwp">hwp파일</a></li>
+		<li><a href="intro.xls">엑셀파일</a></li>
+	</ul>
+</body>
+</html>

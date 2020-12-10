@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3의 기초-7(class 선택자)</title>
+	<style type="text/css">
+		/* class 선택자 : 다른 태그들고 함께 그룹을 지어서 스타일을 적용시키기 위해서 사용함. */
+		.choice{
+			color: blue;
+		}
+		.lang{
+			color: red;
+		}
+		.item{
+			color: blueviolet;
+		}
+		.header{
+			background-color: aqua;
+		}
+	</style>
+</head>
+<body>
+	<!-- 멀티 선택자 사용 -->
+	<h1 class="item header">종류</h1>
+	<h2 class="choice">과일</h2>
+	<ul>
+		<li class="choice">사과</li>
+		<li>파인애플</li>
+		<li>오렌지</li>
+		<li class="choice">바나나</li>
+	</ul>
+	<h2 class="lang">언어의 종류</h2>
+	<ul>
+		<li class="lang">C언어</li>
+		<li>JAVA</li>
+		<li>HTML</li>
+		<li class="lang">CSS</li>
+	</ul>
+</body>
+</html>
