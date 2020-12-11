@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3의 기초-19(형제 선택자)</title>
+	<style type="text/css">
+		/* ~(틸드) : 같은 형제(레벨)이면서 같은 부모를 가지며, 
+		형제 요소에다가 범위 지정을 하면 행당 범위내에 있는 형제 요소들은 
+		전부 스타일이 적용됨. */
+		h1 ~ ul {
+			color: blue;
+			font-weight: bold;	
+		}
+	</style>
+</head>
+<body>
+	<section id="container">
+		<h1>예약 방법 및 요금</h1>
+		<!-- <p>객실을 예약하려면?</p> -->
+		<ul>
+			<li>직접 통화 : 000-0000-0000</li>
+			<li>문자 메시지 : 000-0000-0000</li>	
+		</ul>
+		<ul>
+			<li>1인실 : 40,000원</li>
+			<li>2인실 : 60,000원</li>
+			<li>3인실 : 80,000원</li>
+			<li>4인실 : 100,000원</li>	
+		</ul>
+	</section>
+</body>
+</html>

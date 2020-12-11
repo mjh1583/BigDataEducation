@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3의 기초-25(백분율 단위)</title>
+	<style type="text/css">
+		p:nth-child(1) {}	
+		p:nth-child(2) {
+			font-size: 100%;
+		}	
+		p:nth-child(3) {
+			font-size: 150%;
+		}	
+		p:nth-child(4) {
+			font-size: 200%;
+		}	
+		#first {
+			/* background-color: rgb(255,222,100); */
+			background-color: rgba(0,0,0,0.5); /* alpha값은 0.0(투명), 1.0(불투명) */
+		}
+	</style>
+</head>
+<body>
+	<!-- %단위 : 기본으로 설정된 크기를 기준으로 상대적인 크기를 지정할 때 사용하면 유용함. -->
+	<p id="first">Hello World!</p>
+	<p>Hello World!</p>
+	<p>Hello World!</p>
+	<p>Hello World!</p>
+</body>
+</html>

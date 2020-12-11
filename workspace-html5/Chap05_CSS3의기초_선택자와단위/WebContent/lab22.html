@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3의 기초-22(가상 선택자)</title>
+	<style type="text/css">
+		body {
+			background-color: #646569;
+		}
+		form fieldset {
+			margin-bottom: 25px;
+		}
+		form fieldset legend {
+			font-size: 15px;
+			font-weight: 800;
+		}
+		/* 가상 선택자 */
+		input:disabled {
+			background: #ddd;	
+			border: 1px #ccc solid;
+		}
+		/* 마우스가 input태그 위에 있을 때 */
+		input:hover {
+			background: #fbfcae;
+			border: 1px #3181f7 solid;
+		}
+		/* checked 속성 : radio 버튼 체크박스 체크했을 때 스타일이 적용됨 */
+		input:checked + span {
+			color: red;
+			
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>사용자 정보</legend>
+			<label for="name">이름 : <input type="text" disabled="disabled" /></label>
+		</fieldset>
+		<fieldset>
+			<legend>신청 과목</legend>
+			<p>이 달에 신청할 과목을 선택하세요.</p>
+			<label><input type="radio" name="subject" value="speaking" /><span>회화</span></label>
+			<label><input type="radio" name="subject" value="grammer" /><span>문법</span></label>
+			<label><input type="radio" name="subject" value="writing" /><span>작문</span></label>
+		</fieldset>
+	</form>
+</body>
+</html>
