@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- 
+	*리터럴(Literal) : 데이터의 값을 표현하는 방식
+	자바스크립트의 리터럴 : 숫자 리터럴, 문자열 리터럴, 배열 리터럴, 객체 리터럴, 함수 리터럴, 불리언 리터럴,
+					   undefined와 null 리터럴
+	*숫자리터럴(상수) : 1) Infinity - 무한대를 나타내는 특수한 숫자값임.
+								   isFinite()함수가 false값을 반환하면 infinity값임을 확인할 수 있음.
+					2) NaN - 숫자가 아님을 나타내는 특수한 숫자 값임.
+							 isNaN()함수를 사용해서 NaN값에 대한 확인이 가능함.
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>숫자 리터럴</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 10;
+		document.writeln('a : ' + a + '<br/>');  // a : 10
+		document.writeln('typeof a : ' + typeof a + '<br/>');  // typeof a : number
+		/* 숫자리터럴 */
+		document.writeln('isFinite(a) : ' + isFinite(a) + '<br/>');  // isFinite(a) : true
+		document.writeln('isNan(a) : ' + isNaN(a) + '<br/>');  // isNaN(a) : false
+		document.writeln('<br/>');
+		
+		var b = 1 / 0;
+		document.writeln('b : ' + b + '<br/>');  // b : Infinity
+		document.writeln('typeof b : ' + typeof b + '<br/>');  // typeof b : number
+		document.writeln('isFinite(b) : ' + isFinite(b) + '<br/>');  // isFinite(b) : false
+		document.writeln('isNan(b) : ' + isNaN(b) + '<br/>');  // isNaN(b) : false
+		document.writeln('<br/>');
+		
+		var c = 5 * "4times";
+		document.writeln('c : ' + c + '<br/>');  // c : NaN
+		document.writeln('typeof c : ' + typeof c + '<br/>');  // typeof c : number	
+		document.writeln('isFinite(c) : ' + isFinite(c) + '<br/>');  // isFinite(c) : false
+		document.writeln('isNan(c) : ' + isNaN(c) + '<br/>');  // isNaN(c) : true
+		document.writeln('<br/>');
+		
+	</script>
+</body>
+</html>

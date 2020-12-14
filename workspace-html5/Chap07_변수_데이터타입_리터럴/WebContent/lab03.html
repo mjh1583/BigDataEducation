@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 
+	*문장규칙
+		1)문장의 끝에 세미콜론(;)을 붙인다.	
+		2)대소문자 구별함.
+		3)문장에서의 화이트 스페이스 문자는 무시됨.
+	*주석
+		1) // 단일행
+		2) /* */ 복수행
+ -->
+ <!-- 변수선언과 var 
+ 	*변수 선언시 var 키워드 생략이 가능하지만, 
+ 	 변수 스코프 문제가 발생할 수 있으므로, var 키워드는 생략하지 않는 것이 좋음.
+ 	
+ 	*기본형 데이터 타입
+ 		1)숫자
+ 		2)문자열(String)
+ 		3)불리언(boolean)
+ 		4)null : 보통 참조 타입과 함께 쓰이며, 어떠한 객체도 나타내지 않는 특수한 값.
+ 		5)undefined : 변수는 선언되었으나 값이 할당된 적이 없는 변수 접근, 
+ 					  존재하지않는 객체 프로퍼티 접근할 경우 반환되는 값.
+ 	
+ 	*참조형 데이터 타입
+ 		1)배열(array)
+ 		2)객체(object) : 이름이 붙은 값들의 모음임.
+ 						------------- = 프로퍼티라고 함.
+ 		3)함수(function)
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>변수 선언과 var</title>
+	
+</head>
+<body>
+	<script type="text/javascript">
+		//변수 선언
+		var a;
+		var b, c;
+		var d = 0;
+		var e = 2, f = 4;
+		var g = 6, h;
+		var i, j = 8;
+		
+		/* undefined : 변수는 선언되었으나 값이 할당된 적이 없는 변수에 접근하거나,
+						존재하지 않는 객체 프로퍼티에 접근할 경우 반환되는 값임.*/
+		document.writeln('a : ' + a + '<br/>');  // a : undefined
+		document.writeln('b : ' + b + '<br/>');  // b : undefined
+		document.writeln('c : ' + c + '<br/>');  // c : undefined
+		document.writeln('d : ' + d + '<br/>');  // d : 0
+		document.writeln('e : ' + e + '<br/>');  // e : 2
+		document.writeln('f : ' + f + '<br/>');  // f : 4
+		document.writeln('g : ' + g + '<br/>');  // g : 6
+		document.writeln('h : ' + h + '<br/>');  // h : undefined
+		document.writeln('i : ' + i + '<br/>');  // i : undefined
+		document.writeln('j : ' + j + '<br/>');  // j : 8
+		
+		var k = 10;
+		var l = '문자열';
+		document.writeln('k : ' + k + '<br/>');  // k : 10
+		document.writeln('l : ' + l + '<br/>');  // l : 문자열
+		
+		/* 값에 의한 데이터 타입 결정 */
+		l = 12;
+		document.writeln('l : ' + l + '<br/>');  // l : 12
+	</script>
+</body>
+</html>

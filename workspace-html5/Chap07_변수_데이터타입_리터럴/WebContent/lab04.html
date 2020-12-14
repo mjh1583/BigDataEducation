@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>기본형 데이터 타입과 참조형 데이터 타입</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//데이터 타입
+		var num = 10;           //숫자형
+		var str = 'JavaScript'  //문자열형
+		var point = { x : 300, y : 400 }  //객체
+		var arr = [ 10, 20, 30, 40 ];   //배열
+		
+		//함수
+		var add = function(op1, op2) {
+			return op1 + op2;
+		};
+		
+		document.writeln('num : ' + num + '<br/>');  //num : 10
+		document.writeln('str : ' + str + '<br/>');  //str : JavaScript
+		/* 객체 프로퍼티(property) : 객체명 다음에 점(.)과 프로퍼티명을 붙이거나 
+								  객체명 다음에 대괄호([])로 둘러싼 프로퍼티명의
+								  문자열을 써서 접근할 수 있음*/
+		document.writeln('point.x : ' + point.x + '<br/>');  //point.x : 300
+		document.writeln('point["y"] : ' + point["y"] + '<br/>');  //point[y] : 400
+		
+		document.writeln('arr[0] : ' + arr[0] + '<br/>');  //arr[0] : 10
+		document.writeln('arr[1] : ' + arr[1] + '<br/>');  //arr[0] : 20
+		document.writeln('arr[2] : ' + arr[2] + '<br/>');  //arr[0] : 30
+		document.writeln('arr[3] : ' + arr[3] + '<br/>');  //arr[0] : 40
+		
+		document.writeln('add : ' + add + '<br/>');  //add 함수 자체
+		document.writeln('add(2, 3) : ' + add(2, 3) + '<br/>');  //add(2, 3) : 5 
+	</script>
+</body>
+</html>
