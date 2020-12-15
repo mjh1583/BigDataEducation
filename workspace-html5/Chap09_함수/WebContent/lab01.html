@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- 
+	*함수를 정의하는 3가지 방법
+	1) function문을 이용해 함수를 정의
+	   function 함수명(매개변수 목록) {
+	   		문장들
+	   		[return 반환값;]
+	   }
+	2) 함수 리터럴을 이용해 함수를 정의
+	   var 변수명 = function([매개변수 목록]) {
+	   		문장들
+	   		[return 반환값;]
+	   }
+	3) Function 생성자를 이용해 함수를 정의
+	   var 변수명 = new Function('[매개변수],...');
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>함수의 정의와 호출</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//함수의 정의와 호출
+		
+		// function 문에 의해 정의된 print 함수 : 매개변수 message에 전달된 값을 출력
+		function print(message) {
+			document.writeln(message);
+		}
+		
+		// function 문에 의해 정의된 print 함수 : 매개변수 message에 전달된 값을 출력
+		// 문자열 '<br/>'을 접합 연산한 결과를 출력함
+		function println(message) {
+			document.writeln(message + '<br/>');
+		}
+		
+		var pointA = { x : 25, y : 40 };
+		var pointB = { x : 50, y : 80};
+		
+		//function문에 의해 정의된 distance 함수 : x, y 프로퍼티를 가진 객체를 매개변수로
+		//내장객체 Math가 제공하는 sqrt함수를 호출해 두 점간의 거리를 반환함
+		function distance(p1, p2) {
+			var dX = p2.x - p1.x;
+			var dY = p2.y - p1.y;
+			return Math.sqrt(Math.pow(dX, 2) + Math.pow(dY, 2));
+		}
+		
+		print('사이의 거리 : ');
+		println(distance(pointA, pointB));
+		
+		//함수 리터럴에 의해 정의된 square함수 : x, y 프로퍼티를 가진 객체를 매개변수로 하여
+		//두 점을 이용해 구성된 사각형의 면적을 반환함.
+		var square = function(leftTop, rightBottom) {
+			var width = rightBottom.x - leftTop.x;
+			var height = rightBottom.y - leftTop.y;
+			return width*height;
+		}
+		
+		print('pointA와 pointB로 구성한 사각형의 넓이 : ');
+		println(square(pointA, pointB));
+		
+		//Function 생성자에 의해 정의된 triangle 함수 : base와 height
+		//매개변수에 전달된 값을 이용해 삼각형 면적을 반환함.
+		var triangle = new Function('base', 'height', 'return (base*height)/2;');
+	
+		print('base와 height로 구성한 삼각형 넓이 : ');
+		println(triangle(30, 20));
+		
+		
+	</script>	
+</body>
+</html>
