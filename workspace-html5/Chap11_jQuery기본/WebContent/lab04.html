@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>일반함수생성_이벤트 처리</title>
+</head>
+<body>
+	<button id="btnStart">출력</button>
+
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			function hello() {
+				alert("안녕하세요. 환영합니다!");
+			}
+			
+			$("#btnStart").click(hello);
+			
+		});
+		
+	</script>	
+</body>
+</html>

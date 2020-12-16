@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 
+	*jQuery
+		1) 2006년 1월 발표 / 2010년 8월 프로젝트 공식 발표(jQuery mobile)
+		2) DOM의 쉬운 조작, 쉽고 일관된 이벤트, 시각화 지원, 쉬운 Ajax 지원...
+		3) 자바스크립트에서 DOM 객체를 질의(query)해 조작한다는 의미를 강조
+		4) HTML DOM과 자바스크립트 사이의 상호작용을 간단하게 해주는 것이 jQuery의 가장 큰 특징
+		5) jQuery는 HTML DOM 객체에 접근하기 위해 셀렉터(select)매커니즘을 사용
+		   CSS 셀렉터로 문서의 특정 노드를 찾을 수 있음.
+		6) jQuery의 별칭으로 $를 사용할 수 있어 $()를 더 많이 사용
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 사용</title>
+</head>
+<body>
+	<div>
+		<p>jQuery를 사용하는 이유를 알아보겠습니다.</p>
+		<p>요청 : 스크립트를 이용해서 문서에서 #menu2의 li태그 스타일 속성 중 글자색을 모두 빨간색으로 
+		변경해주세요.</p>
+	</div>
+	<ul class="menu" id="menu1">
+		<li>menu1-1</li>
+		<li>menu1-2</li>
+		<li>menu1-3</li>
+		<li>menu1-4</li>
+		<li>menu1-5</li>
+		<li>menu1-6</li>
+		<li>menu1-7</li>
+	</ul>
+	<ul class="menu" id="menu2">
+		<li>menu2-1</li>
+		<li>menu2-2</li>
+		<li>menu2-3</li>
+		<li>menu2-4</li>
+		<li>menu2-5</li>
+	</ul>
+	
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/* 
+			$(document).ready(function(){...}) 형태 : 익명 함수를 매개변수로 사용		
+		*/
+		$(document).ready(function() {
+			$("#menu2 li").css("color", "#f00");
+		});
+	</script>
+</body>
+</html>

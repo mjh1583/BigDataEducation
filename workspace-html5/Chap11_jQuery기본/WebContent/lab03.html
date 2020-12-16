@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 준비</title>
+	<style type="text/css">
+		body {
+			font-size: 9pt;
+			font-family: "굴림";
+		}
+		div, p {
+			border: 1px #eeeeee solid;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		JQuery를 이용한 노드 찾기
+	</div>
+	<p>
+		$()는 그냥 함수 호출일 뿐이다. 함수이름이 $인 함수 호출
+		$() 함수의 역할은 선택자에 해당하는 노드를 찾아주는 역할을 합니다.
+	</p>
+	<div>
+		var $변수명은 $()함수에서 리턴해주는 값을 저장하기 위해 만든 변수이다.
+		변수이름 앞에 $를 붙여준 이유는 jQuery기능이 들어있는 변수라는 것을 표현하기 위해서이다.
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/* 문서에서 div 태그의 글자색을 모두 빨간색으로 변경해주세요. */
+		$(document).ready(function() {
+			//여기에 노드를 다루는 코드를 작성하면 됩니다.
+			//alert('환영합니다.');
+			//$('div').css('color', 'red');
+			var $divs = $('div');
+			$divs.css('color', '#f00');
+		})
+	</script>	
+</body>
+</html>

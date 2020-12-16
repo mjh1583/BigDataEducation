@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>일반함수생성_이벤트 처리2</title>
+	<style type="text/css">
+		#info {
+			border: 1px solid #000;
+			min-height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btnStart">출력</button>
+	<div id="info">
+	
+	</div>
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/* 
+			버튼을 클릭할 때마다 클릭한 횟수와 함께 "안녕하세요. 환영합니다." 메시지를
+			#info에 출력해 주세요
+			단, 페이지가 실행되면 바로 ' 0 안녕하세요. 환영합니다.' 메시지가 출력되야 합니다.
+			
+			실행결과 : 
+				0 안녕하세요. 환영합니다.   <== 버튼 클릭 전에 출력되어야 함.
+				1 안녕하세요. 환영합니다.   <== 이 내용부터는 버튼 클릭 후 출력됨.
+				2 안녕하세요. 환영합니다.
+				.......
+		*/
+		var count = 0;
+		var $info = null;
+		
+		$(document).ready(function() {
+			$info = $('#info');
+			
+			hello();
+			
+			$('#btnStart').click(hello);
+			
+		});
+		
+		function hello() {
+			$info.append("<p>" + count + ' 안녕하세요. 환영합니다.</p>')
+			count++;
+		}
+		
+	</script>
+</body>
+</html>

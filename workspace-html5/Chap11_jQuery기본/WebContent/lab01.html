@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 사용</title>
+</head>
+<body>
+	<div>
+		<p>jQuery를 사용하는 이유를 알아보겠습니다.</p>
+		<p>요청 : 스크립트를 이용해서 문서에서 #menu2의 li태그 스타일 속성 중 글자색을 모두 빨간색으로 
+		변경해주세요.</p>
+	</div>
+	<ul class="menu" id="menu1">
+		<li>menu1-1</li>
+		<li>menu1-2</li>
+		<li>menu1-3</li>
+		<li>menu1-4</li>
+		<li>menu1-5</li>
+		<li>menu1-6</li>
+		<li>menu1-7</li>
+	</ul>
+	<ul class="menu" id="menu2">
+		<li>menu2-1</li>
+		<li>menu2-2</li>
+		<li>menu2-3</li>
+		<li>menu2-4</li>
+		<li>menu2-5</li>
+	</ul>
+	
+	<script type="text/javascript">
+		window.onload = function() {
+			//먼저 #menu2를 찾는다.
+			var menu2 = document.getElementById('menu2');
+			//#menu2의 태그 중 li태그를 찾는다.
+			var liList = menu2.getElementsByTagName('li');
+			//li태그를 하나씩 접근해 글자색을 변경한다.
+			for(var i = 0; i < liList.length; i++) {
+				var li = liList[i];
+				li.style.color = '#f00';
+			}
+		}
+	</script>
+</body>
+</html>
