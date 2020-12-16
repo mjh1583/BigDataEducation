@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>함수 정의 & 함수 호출</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* "자바스크립트", "jQuery", "jsp" 문자열을 다섯번씩 출력해주세요. */
+	
+		//함수 정의
+		function showName(name) {
+			for(var i = 1; i <= 5; i++) {
+				document.writeln(i + '.' + name + '입니다.<br/>');
+			}
+			document.writeln('<br/>');
+		}
+		
+		//함수 호출
+		showName('자바스크립트');
+		showName('jQuery');
+		showName('jsp');
+		
+	</script>
+</body>
+</html>

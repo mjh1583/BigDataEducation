@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 
+*
+**
+***
+****
+*****
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>별표 찍기를 함수로 만들기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//별 출력
+		function printStar(count) {
+			var star = '';
+			for(var i = 1; i <= count; i++) {
+				for(var j = 0; j < i; j++ ) {
+					//document.writeln('*')
+					star += '*';
+				}
+				//document.writeln('<br/>')
+				star+='<br/>';
+			}
+			document.writeln(star);
+		}
+		
+		printStar(5);
+		printStar(5);
+	
+	</script>
+</body>
+</html>

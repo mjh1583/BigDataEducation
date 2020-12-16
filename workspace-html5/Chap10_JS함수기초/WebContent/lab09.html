@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>return문의 또다른 용도</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 
+			무한루프를 돌며 숫자를 입력받고 입력받은 수의 합을 화면에 출력하는 기능을 gumi()라는
+			함수에 만들어 주세요.
+			단, 입력값이 0이면 즉시 실행을 멈춰 주세요.
+		*/
+		function gumi() {
+			var sum = 0;
+			var count = 1;
+			
+			//무한루프
+			while(true) {
+				var value = parseInt(window.prompt("수 입력", 1));		
+				
+				if(value == 0) {
+					document.writeln('종료합니다. ' + "&nbsp;&nbsp;&nbsp;&nbsp;");
+					document.writeln('총 ' + (count - 1) + '번 실행했습니다.');
+					//함수 탈출
+					return;
+				}
+				//입력값 더하기
+				sum += value;
+				//입력값 출력하기
+				document.writeln(count++ + ". " + sum + '<br/>');
+			}
+		}
+		//함수호출
+		gumi();
+		
+	</script>
+</body>
+</html>

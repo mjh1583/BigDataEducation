@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>함수 정의 & 함수 호출2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* "자바스크립트", "jQuery", "jsp" 문자열을 호출시 입력한 횟수만큼 출력해주세요. */
+	
+		//함수 정의 (재사용할 코드)
+		function showName(name, count) {
+			for(var i = 1; i <= count; i++) {
+				document.writeln(i + '.' + name + '입니다.<br/>');
+			}
+			document.writeln('<br/>');
+		}
+		
+		//함수 호출
+		showName('자바스크립트', 5);
+		showName('jQuery', 10);
+		showName('jsp', 7);
+		
+	</script>
+</body>
+</html>

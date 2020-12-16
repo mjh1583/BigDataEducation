@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>지역변수_전역변수_생명주기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function func1() {
+			var name = 'gumi city';
+			document.writeln('1. name = ' + name);
+			document.writeln('<br/>');
+		}
+		
+		func1();
+		//name은 지역변수이기 때문에 전역에서 사용할 수 없음.
+		document.writeln('2. name = ' + name);
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>전역변수 & 지역변수</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 10;
+		var b = 100;
+		 
+		function func1() {
+			var b = 20;
+			document.writeln('1. a = ' + a + '<br/>');
+			document.writeln('2. b = ' + b + '<br/>');
+			a = 50;
+		}
+		
+		func1();
+		document.writeln('3. a = ' + a + '<br/>');
+		document.writeln('4. b = ' + b + '<br/>');
+		
+		/* 
+			1. a = 10   (전역변수)
+			2. b = 20   (지역변수)
+			3. a = 50   (전역변수)
+			4. b = 100  (전역변수)
+		*/
+		
+		
+	</script>	
+</body>
+</html>
