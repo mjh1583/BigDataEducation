@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>리턴값으로 함수 사용하기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function createHello() {
+			
+			function hello(user) {
+				document.write(user + "님 방문을 환영합니다.<br/>");
+			}
+			
+			return hello;
+		}
+		
+		var result = createHello();
+		
+		result("구미시민");
+		
+	</script>
+</body>
+</html>

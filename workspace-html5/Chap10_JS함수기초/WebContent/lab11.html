@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>매개변수 값으로 함수를 사용</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function happy() {
+			alert("Happy");
+		}
+		
+		function newyear() {
+			alert("New Year");
+		}
+		
+		function execute(func) {
+			func();
+		}
+		
+		execute(happy);
+		execute(newyear);
+		
+	</script>
+</body>
+</html>

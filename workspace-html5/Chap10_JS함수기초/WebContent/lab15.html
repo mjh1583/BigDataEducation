@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- 
+	*중첩함수
+	- 자바스크립트에서 함수는 다른 함수안에 중첩되어 정의될 수 있음.
+	- 함수내에서만 호출할 수 있으며, 함수 외부에서는 직접호출할 수 없음. => 정보은닉 구현.
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>중첩 함수</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 1초에 한번씩 안녕하세요 출력해 주세요. */
+		
+		function starthello() {
+			var count = 0;
+			
+			setInterval(function() {
+				count++;
+				document.write(count + " 안녕하세요. <br/>");
+			}, 1000);
+		}
+		
+		starthello();
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>리턴값으로 함수사용하기-이벤트리스너</title>
+</head>
+<body>
+	<button id="btnStart">시작</button>
+	
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/* 버튼을 클릭할때마다 매개변수 값으로 넘긴 hello함수가 호출됨. */
+		$(document).ready(function() {
+			
+			function hello() {
+				document.write("새해 복 많이 받으세요!");
+			}
+			
+			$('#btnStart').click(hello);
+			
+		});
+	</script>	
+</body>
+</html>
