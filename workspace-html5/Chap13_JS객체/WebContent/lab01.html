@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- 
+	* JS 객체 : 이름과 값으로 구성된 프로퍼티의 집합,
+			   이름이 붙어있는 데이터값들의 모음, 복합타입
+	* JS 모든 객체 : Object 생성자함수를 상속하며,
+				   공통으로 Object에서 상속받은 프로퍼티와 메서드가 있음.
+	*__proto__ (: 프로토타입 객체)
+		=> JS 모든 객체는 프로토타입이라 불리는 객체를 내부적으로 참조함.
+	* 프로토타입 객체 : new 연산자와 Object 생성자 함수 호출을 통해 생성한 Object 객체
+		==> 프로토타입 객체를 이용하면 좀 더 효율적으로 메서드를 추가할 수 있음.
+	* prototype 프로퍼티
+		1) 모든 함수는 prototype 프로퍼티가 있으며, 함수가 정의될 때 생성되고 초기화됨.
+		2) new 연산자는 빈 객체를 생성하고, 
+		   해당객체의 prototype 프로퍼티를 생성자 함수의 prototype 프로퍼티값을 이용해 설정
+		3) 프로토타입 객체는 생성자 함수와 연결되고,
+		   이 생성자 함수를 통해서 생성되는 객체들은 생성자 함수와 연결된 프로토타입 객체의 프로퍼티들을 똑같이 상속
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 객체를 정의하는 방법 : 생성자 함수 사용 */
+		
+		//생성자 함수 : 객체를 만드는 틀 
+		//생성자의 이름 첫 문자는 대문자로 함(다른 함수와 구별하기 위함)
+		//초기화할뿐 다른 역할은 수행하지 않는 것이 원칙임
+		//생성자 함수의 구현시 return 문은 사용하지 않음
+		function Rectangle(x, y, w, h) {
+			this.pointX = x;   //프로퍼티
+			this.pointY = y;
+			this.width = w;
+			this.height = h;
+			this.toString = function() {
+				return 'Rectangle : { pointX : ' + this.pointX + 
+					', pointY : ' + this.pointY + 
+					', width : ' + this.width + 
+					', height : ' + this.height + ' }';
+			}
+		}
+		
+		var rect1 = new Rectangle(100, 120, 20, 30);
+		var rect2 = new Rectangle(250, 200, 30, 50);
+		
+		document.write(rect1 + "<br/>");
+		document.write(rect2 + "<br/>");
+		
+		console.log(rect1);
+	</script>
+</body>
+</html>

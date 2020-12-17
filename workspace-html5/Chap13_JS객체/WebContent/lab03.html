@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 프로토타입 객체와 prototype 프로퍼티 */
+		/* 
+			프로토타입 객체에 의한 상속을 통해 메모리 사용량을 줄일 수 있으며,
+			프로토타입 객체에 프로퍼티를 변경되거나 추가되어도
+			기존 객체들 역시 변경되거나 추가된 프로퍼티를 바로 사용할 수 있다는 장점이 있음
+		*/
+		
+		function Rectangle(x, y, w, h) {
+			this.pointX = x;
+			this.pointY = y;
+			this.width = w;
+			this.height = h;
+		}
+		
+		/* 
+			모든 함수가 가지고 있는 prototype 프로퍼티는 프로토타입 객체에 대한 연결을 가짐
+			=> 이 메서드는 Rectangle 생성자 함수를 통해 생성되는 객체에 상속될 것임.
+		*/
+		Rectangle.prototype.toString = function() {
+			return 'Rectangle : { pointX : ' + this.pointX + 
+			', pointY : ' + this.pointY + 
+			', width : ' + this.width + 
+			', height : ' + this.height + ' }';
+		}
+		
+		Rectangle.prototype.area = function() {
+			return this.width * this.height;
+		}
+		
+		var rect1 = new Rectangle(100, 120, 20, 30);
+		var rect2 = new Rectangle(250, 300, 30, 50);
+		
+		document.writeln('rect1 : ' + rect1 + "<br/>");
+		document.writeln('rect1.area : ' + rect1.area() + "<br/>");
+		document.writeln('rect2 : ' + rect2 + "<br/>");
+		document.writeln('rect2.area : ' + rect2.area() + "<br/>");
+		
+		console.log(rect1)
+	</script>
+</body>
+</html>
