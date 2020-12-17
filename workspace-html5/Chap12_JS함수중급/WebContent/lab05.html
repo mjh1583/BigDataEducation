@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>콜백함수</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 사칙연산 함수 */
+		function calculator(op, num1, num2) {
+			var result = "";
+			
+			switch(op) {
+			case '+':
+				result = num1 + num2;
+				break;
+			case '-':
+				result = num1 - num2;
+				break;
+			case '*':
+				result = num1 * num2;
+				break;
+			case '/':
+				result = num1 / num2;
+				break;
+			default:
+				result = "산술연산자는 + - * / 입니다."
+			}
+			document.write("두 수의 합은 " + result + "입니다. <br/>");			
+		}
+		
+		calculator("+", 10, 20);
+		
+	</script>	
+</body>
+</html>

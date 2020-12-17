@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 두 수를 더하는 함수를 만들어 주세요. 
+			-콜벡함수를 이용하는 경우
+		*/
+		function sum(num1, num2, callback) {
+			var temp = num1 + num2;
+			callback(temp);
+		}
+		
+		function result(val) {
+			document.write("두 수의 합은 " + val + "입니다. <br/>");
+		}
+		
+		sum(10, 20, result);
+		
+	</script>
+</body>
+</html>

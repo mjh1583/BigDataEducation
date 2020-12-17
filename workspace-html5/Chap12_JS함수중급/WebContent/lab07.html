@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- 
+	* 콜백함수(Callback 함수)
+		: 직접 호출하는 함수가 아닌
+		  어떤 특정 시점이나 조건을 만족했을 때 호출될 수 있도록
+		  라이브러리 함수의 인자로 전달되는 함수를 말함.
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>콜백함수3</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 사칙연산 함수 */
+		function calculator(op, num1, num2, callback) {
+			var result = "";
+			
+			switch(op) {
+			case '+':
+				result = num1 + num2;
+				break;
+			case '-':
+				result = num1 - num2;
+				break;
+			case '*':
+				result = num1 * num2;
+				break;
+			case '/':
+				result = num1 / num2;
+				break;
+			default:
+				result = "산술연산자는 + - * / 입니다."
+			}
+			callback(result);
+		}
+		
+		function print1(result) {
+			document.write("두 수의 합은 " + result + "입니다. <br/>");	
+		}
+		
+		function print2(result) {
+			document.write("정답은 " + result + "입니다. <br/>");	
+		}
+		
+		calculator("+", 10, 20, print1);
+		calculator("+", 10, 20, print2);
+		
+	</script>	
+</body>
+</html>
