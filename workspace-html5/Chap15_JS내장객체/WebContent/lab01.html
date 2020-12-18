@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* Array
+			- 배열을 다루기 위한 객체
+			- 배열의 원소에 대한 추가, 삭제, 정렬 등의 조작 기능을 제공
+			- 크기가 자동으로 증가되는 특징을 가지고 있음.
+			
+			- concat(arr) : 매개변수로 전달된 배열 객체를 현재 배열 객체에 연결.
+			- join(del) : 배열의 원소를 구분문자열 del로 연결해 문자열로 반환.
+			- slice(start, [end]) : start 인덱스에서 end-1 인덱스의 원소로 배열을 생성하여 반환
+			- splice(start, cnt, [rep...]) : start 인덱스에서 cnt개의 원소를 rep...로 치환. 
+			
+			- pop() : 배열 끝의 원소를 꺼내 배열에서 삭제
+			- push(data1, [,data2, ...]) : 배열 끝에 원소를 추가 
+			- shift() : 배열 처음에서 원소를 꺼내 배열에서 삭제
+			- unshift(data1, [,data2,...]) : 배열 처음에 원소들을 추가
+			
+			- reverse() : 인덱스의 역순으로 배열을 정렬
+			- length : 배열의 크기 반환
+			- toString() : [원소1,원소2,...] 형식의 문자열 반환
+		*/
+		
+		var ary1 = ['홍길동', '이순신', '강감찬', '을지문덕', '광개토대왕'];
+		var ary2 = ['이나영', '임수정', '이영애', '김혜수'];
+		
+		document.writeln(ary1.concat(ary2), '<br/>');
+		document.writeln(ary1.join("/"), '<br/>');
+		document.writeln(ary1.slice(1), '<br/>');
+		document.writeln(ary1.slice(1, 2), '<br/>');
+		document.writeln(ary1.splice(1, 2, '계백', '김유신'), '<br/>');
+		document.writeln(ary1, '<br/>');
+		document.writeln('<br/>');
+		
+		document.writeln(ary1.pop(), '<br/>');
+		document.writeln(ary1, '<br/>');		
+		document.writeln(ary1.push('권율'), '<br/>');
+		document.writeln(ary1, '<br/>');
+		document.writeln(ary1.shift(), '<br/>');
+		document.writeln(ary1, '<br/>');
+		document.writeln(ary1.unshift('세종대왕', '장영실'), '<br/>');
+		document.writeln(ary1, '<br/>');
+		document.writeln('<br/>');
+
+		document.writeln(ary1.reverse(), '<br/>');
+		document.writeln(ary1.length, '<br/>');
+		document.writeln(ary1.toString(), '<br/>');
+		
+	</script>
+</body>
+</html>

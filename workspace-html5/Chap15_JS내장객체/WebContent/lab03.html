@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Number</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* Number
+			- 숫자를 다루기 위한 랩퍼 객체
+			
+			- toString(n) : n진수 값으로 반환
+			- toFixed(n) : 소수점 이하 자리수 n에 맞춰 변환(자리수가 부족한 경우 0으로 채움)
+			- toPrecision(n) : 유효자리수 n에 맞춰 변환(자리수가 부족한 경우 0으로 채움)
+			- 
+			
+		*/
+		
+		var num1 = 255;
+		document.writeln(num1.toString(16), '<br/>');
+		document.writeln(num1.toString(8), '<br/>');
+		
+		var num2 = 123.45678;
+		document.writeln(num2.toFixed(3), '<br/>');
+		document.writeln(num2.toFixed(7), '<br/>');
+		document.writeln(num2.toPrecision(10), '<br/>');
+		document.writeln(num2.toPrecision(6), '<br/>');
+		
+	</script>	
+</body>
+</html>

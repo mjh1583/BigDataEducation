@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>String</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* String
+			- 문자열을 다루기 위한 랩퍼(Wrapper) 객체
+			- 문자열의 검색, 부분 문자열의 추출, 변환 등의 조작 기능을 제공
+			
+			- indexOf(substr [, start]) : start인덱스로부터 정방향으로 
+										  부분문자열 substr과 일치하는 인덱스 반환
+			- lastIndexOf(substr , [, start]) : start인덱스로부터 역방향으로
+												부분문자열 substr과 일치하는 익데스 반환
+												
+			- charAt(n) : n번 인덱스의 문자를 반환
+			- slice(start [,end]) : 문자열에서 start인덱스에서 end-1인덱스 사이의 문자를 반환
+			- substring(start [,end]) : 문자열에서 start인덱스에서 end-1인덱스 사이의 문자를 반환
+			- split(str [,limit]) : 문자열을 분할문자열 str로 분할하여 그 결과를 배열로 반환
+									limit은 최대 분할 수 
+									
+			- concat(str) : 문자열 뒤에 문자열 str을 연결한 새로운 문자열을 반환
+			- length : 문자열의 길이 반환
+			
+		*/
+		
+		var str1 = 'better tomorrow';
+		document.writeln(str1.indexOf("t"), "<br/>");
+		document.writeln(str1.indexOf("t", 3), "<br/>");
+		document.writeln(str1.lastIndexOf("t"), "<br/>");
+		document.writeln(str1.lastIndexOf("o", 3), "<br/>");
+		document.writeln("<br/>");
+		
+		var str2 = 'JavaScript';
+		document.writeln(str2.charAt(4), '<br/>');
+		document.writeln(str2.slice(5, 8), '<br/>');
+		document.writeln(str2.substring(5, 8), '<br/>');
+		document.writeln(str2.split('S'), '<br/>');
+		document.writeln('<br/>');
+		
+		document.writeln(str2.concat('프로젝트'), '<br/>');
+		document.writeln(str2.length, '<br/>');
+		
+	</script>	
+</body>
+</html>

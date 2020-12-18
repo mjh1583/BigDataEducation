@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Date</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* Date
+			- new 연산자와 생성자 호출을 통해 객체를 생성해야함.
+			- 1970년 1월 1일 0시 0분 0초를 기준으로 시각을 관리함.
+			- 월 지정값은 0~11임.
+		*/
+		
+		var dat = new Date(2020, 11, 18, 14, 08, 35);
+		document.writeln(dat, '<br/>');
+		document.writeln(dat.getFullYear(), '<br/>');  //년(4자리)
+		document.writeln(dat.getMonth() + 1, '<br/>');  //월(0~11)
+		document.writeln(dat.getDate(), '<br/>');  //일
+		document.writeln(dat.getDay(), '<br/>');  //요일(0:일요일 ~ 6:토요일)
+		document.writeln('<br/>');
+		
+		var dat2 = new Date();
+		/* dat2.setFullYear(2020);
+		dat2.setMonth(11);
+		dat2.setDate(18); */
+		document.writeln(dat2, '<br/>');
+		//지역 정보에 따른 날짜와 시간을 문자열로 반환.
+		document.writeln(dat2.toLocaleString(), '<br/>');
+		document.writeln(dat2.toLocaleDateString(), '<br/>');
+		document.writeln(dat2.toLocaleTimeString(), '<br/>');
+		
+	</script>
+</body>
+</html>
