@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- 
+	로또 : 1~45까지의 숫자 가운데 6개를 골라 기입, 당첨번호 맞추는 것.
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로또 번호 생성기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* Lotto 생성자 함수
+		   로또 번호의 범위값(1~45)으로 사용할 매개변수 numbers,
+		   선택할 공의 갯수로 사용할 매개변수 balls
+		*/
+		function Lotto(numbers, balls) {
+			this.numbers = numbers;
+			this.balls = balls;
+			this.luckyNumbers = [];  //빈 배열 객체
+		}
+		
+		/* 랜덤하게 로또 번호를 생성하고, 그 로또 번호를 
+		   luckyNumbers 배열 객체에 저장하며, 그 배열 객체를 리턴
+		*/
+		Lotto.prototype.getLuckyNumbers = function() {
+			
+			while(true) {
+				/* Math.random() : 0~1 사이의 실수 반환 */
+				var ball = Math.floor(Math.random() * this.numbers) + 1;
+				
+				/* 매번 생성된 로또 번호가 luckyNumbers의 배열 객체에 이미 존재하는지
+				   indexOf()를 이용해 검사, 존재하지 않을때 push()를 통해 추가함.
+				*/
+				if(this.luckyNumbers.indexOf(ball) == -1) {
+					this.luckyNumbers.push(ball);
+				}
+				
+				/* luckyNumbers의 length 프로퍼티와 balls 프로퍼티 값이 동일하면
+				   지정된 갯수만큼의 로또 번호가 다 만들어진 것임.*/
+				if(this.luckyNumbers.length == this.balls) {
+					break;
+				}
+			}
+			
+			return this.luckyNumbers;
+		};
+		
+		var myLotto = new Lotto(45, 6);
+		document.writeln(myLotto.getLuckyNumbers());
+		
+	</script>
+</body>
+</html>

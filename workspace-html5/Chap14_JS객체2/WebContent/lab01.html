@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>객체를 만드는 다양한 방법</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 객체를 만드는 다양한 방법 */
+		
+		// 1) 기본적인 객체 생성 : {}를 이용해서 키와 속성으로 생성
+		//	값(속성), 함수(메서드)	
+		//	this 키워드 : 객체 내부를 가리키는 키워드, 객체 속성을 이용할때 반드시 명시해줘야함.
+		var objBicycle = {
+				handle : 'steel',
+				maxSpeed : '50km/h',
+				width : '200cm',
+				height : '100cm',
+				run : function() {
+					return 'go!';
+				}
+		};
+		
+		console.log("objBicycle.maxSpeed : " + objBicycle.maxSpeed);
+		console.log("objBicycle.run : " + objBicycle.run());
+		
+		// 2) 함수를 이용한 객체 생성 
+		function createCar(name, color, speed) {
+			var carObj = {
+					name : name,
+					color : color,
+					speed : speed,
+					run : function() {
+						return this.speed + 'km/h';
+					}
+			};
+			
+			return carObj;
+		}
+		
+		var genesis = createCar("GENESYS", "GRAY", 220);
+		console.log("genesis.name : " + genesis.name);
+		console.log("genesis.run() : " + genesis.run());
+		
+		var palisade = createCar("PALISAFE", "WHITE", 180);
+		console.log("palisade.name : " + palisade.name);
+		console.log("palisade.run() : " + palisade.run());
+		
+		// 3) 생성자를 이용한 객체 생성
+		function Airplane(name, color, speed) {
+			this.name = name;
+			this.color = color;
+			this.speed = speed;
+			this.fly = function() {
+				return this.speed = "fly!";
+			};
+		};
+		
+		var boeing747 = new Airplane("boeing747", "white", "600km/h");
+		
+		console.log("boeing747.name : " + boeing747.name);
+		console.log("boeing747.color : " + boeing747.color);
+		console.log("boeing747.fly() : " + boeing747.fly());
+		
+	</script>
+</body>
+</html>

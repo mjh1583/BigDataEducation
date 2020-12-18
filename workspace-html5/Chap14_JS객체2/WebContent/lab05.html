@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>getter, setter 함수2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* getter, setter 함수
+			: 외부에서 객체 내부의 변수에 접근하기 위한 함수(내부함수 보호)
+		*/
+		
+		function BMICalculator() {
+			var height = 0;
+			var weight = 0;
+			
+			this.bmi = function() {
+				return (this.weight / (this.height * this.height)).toFixed(2);
+			};
+			
+			this.getHeight = function() {
+				return this.height;
+			}
+			
+			this.setHeight = function(height) {
+				if(!isNaN(height)) {
+					this.height = height;
+				}
+				else {
+					console.log("height is NaN(Not a Number)");
+				}
+			}
+			
+			this.getWeight = function() {
+				return this.weight;
+			}
+			
+			this.setWeight = function(weight) {
+				if(!isNaN(weight)) {
+					this.weight = weight;
+				}
+				else {
+					console.log("weight is NaN(Not a Number)");
+				}
+			}
+		};
+		
+		var myBMI = new BMICalculator();
+		
+		myBMI.setHeight(1.9);
+		myBMI.setWeight('가나다');
+		
+		console.log("myBMI.bmi() : " + myBMI.bmi());
+		
+	</script>	
+</body>
+</html>
