@@ -9,3 +9,7 @@ JAVA8, JDK11, Eclipse IDE
 R 4.0.3 
 
 -JSP(workspace-html5) : Apache Tomcat 8.5.60, Eclipse IDE for Enterprise Java Developers, WebStorm-2020.3, Chrome, jQuery 3.5.1
+
+-MySql
+
+-Git : Git Bash 이용
