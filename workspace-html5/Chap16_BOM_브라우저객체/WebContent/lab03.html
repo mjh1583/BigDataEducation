@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- 
+	* onload() 이벤트 : 호출된 웹문서가 모두 완료된 후 자동으로 실행.
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>window.onload()</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload = function() {
+			console.log("First!");
+		};
+	</script>
+	<script type="text/javascript">
+		console.log("Second!");
+	</script>	
+	<script type="text/javascript">
+		console.log("Third!");
+	</script>
+</body>
+</html>
