@@ -10,6 +10,6 @@ R 4.0.3
 
 -JSP(workspace-html5) : Apache Tomcat 8.5.60, Eclipse IDE for Enterprise Java Developers, WebStorm-2020.3, Chrome, jQuery 3.5.1
 
--MySql
+-Mysql(workspace-query) : Mysql 8.0, MySQL Workbench 8.0 CE, DBeaver 7.3.1
 
 -Git : Git Bash 이용
