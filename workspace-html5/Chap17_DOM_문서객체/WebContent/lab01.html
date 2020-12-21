@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- * DOM(Document Object Model)
+		- 웹문서(태그)와 관련된 객체를 뜻함.
+		
+	 * JS이용해서 html 태그 객체를 생성, 추가, 삭제, 이동 등의 작업을 할 수 있음. 
+ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>텍스트 노드 이용하기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* javascript를 이용해서 문서만들기
+			: DOM HTML API를 이용한 HTML 문서 요소 접근
+		*/
+		window.onload = function() {
+			// 새로운 Element 객체를 생성함.
+			var elementNode = document.createElement("p");
+			// 새로운 TextNode 객체를 생성함.
+			var textNode = document.createTextNode("javascript & jsp");
+			
+			// 자식노드 객체를 추가함.
+			elementNode.appendChild(textNode);
+			document.body.appendChild(elementNode);
+		};
+	</script>
+</body>
+</html>

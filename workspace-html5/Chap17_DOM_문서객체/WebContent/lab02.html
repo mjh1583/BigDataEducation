@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>텍스트 노드와 이미지 노드 이용하기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* var imgNode = document.createElement("img");
+		imgNode.src = "./img/logo.png";
+		imgNode.width = "170";
+		imgNode.height = "67";
+		
+		document.body.appendChild(imgNode); */
+		
+		var imgNode = document.createElement("img");
+		imgNode.setAttribute("src", "./img/logo.png");
+		imgNode.setAttribute("width", "170");
+		imgNode.setAttribute("height", "67");
+		
+		document.body.appendChild(imgNode);
+	</script>	
+</body>
+</html>

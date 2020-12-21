@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JS를 이용해서 CSS 적용하기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* Style속성을 이용해서 css 적용 */
+		window.onload = function() {
+			
+			var str = "";
+			str += "<p id='jsTitle'> JavaScript & JSP</p>";
+			str += "<img id='logoImg', src='./img/logo.png'>";
+			
+			document.body.innerHTML = str;
+			
+			var titleNode = document.getElementById("jsTitle");
+			titleNode.style.fontSize = "1.5em";
+			titleNode.style.border = "1px solid #f00";
+			
+			var logoNode = document.getElementById("logoImg");
+			logoNode.style.width = "170px";
+			logoNode.style.height = "67px";
+		};
+	</script>	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>노드타입이 엘리먼트인 노드의 이름을 출력</title>
+</head>
+<body>
+	<div id="result"></div>
+	<script type="text/javascript">
+		//HTML 문서가 파싱되고 외부 컨텐츠 로딩이 완료되면
+		//웹 브라우저는 load 이벤트를 발생하는데,
+		//이벤트 핸들러로 등록된 함수가 실행됨.
+		window.onload = function() {
+			//id값이 "result"인 div태그를 찾아
+			//innerHTML 속성(프로퍼티)에 html 문자열 값을 저장함.
+			var result = document.getElementById("result");
+			result.innerHTML = printTags(document);
+		};
+		
+		//주어진 노드 객체의 모든 자식노드 중 노드타입이 엘리멘트인 노드의 이름을 출력함.
+		function printTags(node) {
+			var tags = "";
+			
+			//노드타입이 엘리먼트인지를 검사함.
+			if(node.nodeType == Node.ELEMENT_NODE) {
+				//nodeName 프로퍼티에 저장되어 있는 노드의 이름을 tags 변수에 저장함.
+				tags += node.nodeName + "<br/>";
+			}
+			
+			//자식노드 객체들에 대한 NodeList 객체를 저장함.
+			var children = node.childNodes;
+			
+			//NodeList 객체의 length 프로퍼티 이용하여 printTags함수를 재귀호출 함.
+			for(var i = 0; i < children.length; i++) {
+				//printTags함수에 NodeList객체에 담긴 자식노드 항목들을 전달하여
+				//실행된 결과를 tags 변수에 문자열 접합 연산을 통해 저장함.
+				tags += printTags(children[i]);
+			}
+			
+			return tags;
+		};
+	</script>	
+</body>
+</html>

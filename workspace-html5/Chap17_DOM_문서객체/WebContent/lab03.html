@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>innerHTML속성 이용하기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* 
+			Node.innerHTML : 문서에 HTML 텍스트 문자열을 기술하면
+							간단히 새로운 내용을 추가할 수 있음.
+		*/
+		window.onload = function() {
+			
+			var str = "";
+			str += "<p> javascript & jsp </p>";
+			str += "<img src='./img/logo.png',"; 
+			str += "width = '170', height = '67'>";
+			
+			document.body.innerHTML = str;
+		};
+	</script>
+</body>
+</html>

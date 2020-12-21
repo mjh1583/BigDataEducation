@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript를 이용해서 객체 선택하기</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/* id 속성값을 이용해서 객체 선택하기 :
+			document.getElementById("id속성값")
+		*/
+		window.onload = function() {
+			var str = "";
+			str += "<p id='jsTitle'> javascript & jsp </p>";
+			str += "<img id='logoImg', src='./img/logo.png',"; 
+			str += "width = '170', height = '67'>";
+			
+			document.body.innerHTML = str;
+			
+			var titleNode = document.getElementById("jsTitle");
+			titleNode.innerHTML = "JS & jsp";
+			
+			var logoNode = document.getElementById("logoImg");
+			logoNode.setAttribute("src", "./img/img02.jpg");
+			logoNode.setAttribute("width", "297");
+			logoNode.setAttribute("height", 124);
+		};
+		
+	</script>
+</body>
+</html>
