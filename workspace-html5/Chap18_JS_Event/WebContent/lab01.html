@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>클릭이벤트</title>
+</head>
+<body>
+	<form action="">
+		<label>
+			웹 사이트 : <br/>
+			<input type="text" id="siteName" size="50" /><br/>
+		</label>
+		<label>
+			URL : <br/>
+			<input type="text" id="url" size="50" /><br/>
+		</label>
+		<input type="button" id="btnAdd" value="추가" />
+		<input type="button" id="btnCancel" value="취소" />
+	</form>
+	
+	<div id="result">
+	</div>
+	
+	<script type="text/javascript">
+		/* 이벤트 : 마우스, 버튼, 양식 전송, 웹페이지 로드, 포커스... 
+		   이벤트 형식 : 
+			   					이벤트 이름           이벤트 핸들러
+			   					-----             --------------
+			   xxx(이벤트 소스).onclick       =      function() {}
+			                 --------      --
+			                 이벤트 속성     이벤트 연결
+		*/
+		
+		window.onload = function() {
+			var btnAddElement = document.getElementById("btnAdd");
+			var btnCancelElement = document.getElementById("btnCancel");
+			
+			btnAddElement.onclick = add;
+			btnCancelElement.onclick = cancel;
+			
+		};
+		
+		//버튼 btnAdd를 클릭하면 호출
+		function add() {
+			//id 속성값이 siteName, url, result인 엘리먼트를 찾아 참조함.
+			var siteNameElement = document.getElementById("siteName");
+			var urlElement = document.getElementById("url");
+			var resultElement = document.getElementById("result");
+			
+			//<a></a>새로운 Element 객체를 생성함.
+			var anchorElement = document.createElement("a");
+			//<a href="????"></a>
+			anchorElement.href = urlElement.value;
+			
+			//siteNameElement에 저장된 값으로 텍스트 노드를 저장함.
+			var newTextNode = document.createTextNode(siteNameElement.value);
+			//<a href="????"></a> 엘리먼트의 자식노드로 방금전에 만든 텍스트노드를 추가함.
+			anchorElement.appendChild(newTextNode);
+			
+			//<br/> 엘리먼트를 생성함.
+			var brElement = document.createElement("br");
+			
+			//resultElement의 자식노드로 anchorElement와 brElement를 추가함.
+			resultElement.appendChild(anchorElement);
+			resultElement.appendChild(brElement);
+			
+			siteNameElement.value = "";
+			urlElement.value = "";
+		};
+		
+		//버튼 btnCancel을 클릭하면 호출
+		function cancel() {
+			//id속성값이 siteName, url인 엘리먼트를 찾아 참조함.
+			var siteNameElement = document.getElementById("siteName");
+			var urlElement = document.getElementById("url");
+			
+			//입력 필드를 초기화
+			siteNameElement.value = "";
+			urlElement.value = "";
+		};
+		
+	</script>
+</body>
+</html>

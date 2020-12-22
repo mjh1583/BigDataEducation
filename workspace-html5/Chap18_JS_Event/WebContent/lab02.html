@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>양식(폼)이벤트</title>
+</head>
+<body>
+	<form id="loginForm" action="https://www.google.com">
+		USER ID : <input id="uId" type="text" name="uId" /><br/>
+		USER PW : <input id="uPw" type="password" name="uPw" /><br/>
+		<input id="sbmBtn" type="button" value="SUBMIT" />
+		<input id="resBtn" type="button" value="RESET" />
+	</form>
+	
+	<script type="text/javascript">
+		window.onload = function() {
+			var sbmBtn = document.getElementById("sbmBtn");
+			sbmBtn.onclick = function() {
+				if(document.getElementById("uId").value == "") {
+					alert("User ID blank!!");
+				} 
+				else if(document.getElementById("uPw").value == "") {
+					alert("User PW blank!!");
+				}
+				else {
+					alert("Login OK!!");
+					document.getElementById("loginForm").submit();
+				}
+			};
+			
+			var resBtn = document.getElementById("resBtn");
+			resBtn.onclick = function() {
+				alert("Reset OK!!");
+				document.getElementById("loginForm").reset();
+			};
+			
+		};
+	</script>
+</body>
+</html>

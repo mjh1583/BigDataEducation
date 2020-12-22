@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>이벤트 리스너 등록</title>
+</head>
+<body>
+	<form action="">
+		<input type="button" id="btnClick" value="눌러주세요" />
+		<input type="button" id="btnCancel" value="취소" />
+	</form>
+	<div id="result">
+		
+	</div>
+	
+	<script type="text/javascript">
+		/* 한개의 html 요소에서 복수개의 이벤트와 연관을 맺을 수 
+		   있도록하는 기능을 제공하는 이벤트 리스너 구현 
+		   - 브라우저 호환성 고려해 줘야함.
+		   => 이벤트 리스너를 사용하는 경우에는 크로스 브라우징(cross browsing)
+		      을 고려한 코드 작성
+		*/
+		
+		/* 
+			크로스 브라우징 고려해 구현 이벤트 리스너 등록함수
+			el : 이벤트가 발생한 HTML 태그 요소
+			ev : 이벤트
+			handler : 이벤트 핸들러 함수
+		*/
+		//함수 구현
+		function addListener(el, ev, handler) {
+			//Chrome, FireFox 등등 웹 브라우저의 경우
+			if(el.addEventListener) {
+				//원하는 요소에 메서드로 함수에 등록하는 것
+				//(이벤트명, 콜백함수로 이벤트가 발생하면 실행, 이벤트 전파 사용여부)
+				el.addEventListener(ev, handler, false);
+			}
+			else { // IE 웹 브라우저의 경우
+				el.attachEvent('on' + ev, handler);
+			}
+		};
+		
+		//함수 호출
+		addListener(window, 'load', init);
+		
+		//load 이벤트 발생시 수행할 이벤트 핸들러 함수임.
+		function init() {
+			//이벤트 리스너 등록 함수로 사용해 click 이벤트에 대한 이벤트 핸들러 함수를 등록함.
+			var btnClickElement = document.getElementById("btnClick");
+			var btnCancelElement = document.getElementById("btnCancel");
+			
+			addListener(btnClickElement, 'click', addText);
+			addListener(btnCancelElement, 'click', clearText);
+		};
+		
+		//click 이벤트 발생시 수행할 이벤트 핸들러 함수임.
+		function addText() {
+			var resultElement = document.getElementById("result");
+			resultElement.innerHTML = "크로스 브라우저 이벤트 리스너 구현!!";
+		};
+		
+		function clearText() {
+			var resultElement = document.getElementById("result");
+			resultElement.innerHTML = "";
+		};
+		
+	</script>
+</body>
+</html>
