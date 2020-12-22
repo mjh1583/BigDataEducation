@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 이벤트2</title>
+	<style type="text/css">
+		div {
+			cursor: pointer;
+		}
+		div#inner {
+			background-color: #adff2f;
+		}
+		div#outer {
+			background-color: #dda0dd;
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		외부영역
+		<div id="inner">
+			내부영역을 클릭해 보세요!
+		</div>
+		클릭하세요!
+	</div>
+	<div id="log">
+		
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/* 
+			* DOM 이벤트 전파
+			 - 이벤트 흐름 단계 : 캡처 단계(웹 브라우저에서 이벤트 발생 => document)
+							   타겟 단계(이벤트가 발생한 객체로 전파되는 단계)
+							   버블링 단계(타겟 객체의 상위 객체에서 다시 최상위 
+									    객체인 document 객체까지 전파되는 단계)
+			 - stopPropagation() : 이벤트 버블링 억제함.
+		*/
+		$(document).ready(function() {
+			$("#outer").click(function(event) {
+				$('<div/>').append('외부 div를 클릭하였습니다.').appendTo('#log');
+			});
+			
+			$("#inner").on('click', function(event) {
+				event.stopPropagation();
+				$('<div/>').append('내부 div를 클릭하였습니다.').appendTo('#log');
+			});
+		});	
+	</script>
+</body>
+</html>
