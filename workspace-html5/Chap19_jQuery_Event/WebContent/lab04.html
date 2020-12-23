@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 이벤트4 - 페이딩 효과</title>
+	<style type="text/css">
+		.pictframe {
+			color: #AAA;
+			border: 1px solid #444;
+			width: 302px;
+			height: 400px;
+		}
+		#image {
+			position: relative;
+			width: 302px;
+			height: 400px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="pictframe">
+		<img alt="" src="alaskan_malamute.jpg" id="image">
+	</div>
+	<div>
+		<button id="fadein">페이드인</button>
+		<button id="fadeout">페이드아웃</button>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/*  
+			페이딩 : HTML 요소의 불투명도(opacity)를 조절하는 기능
+					요소를 점점 밝게 또는 흐리게 보이도록 조절함.
+			fadein(duration [,callback])
+		
+		*/
+		$(document).ready(function() {
+			$('#fadein').click(function() {
+				$('#image').fadeIn(3000);
+			});
+			
+			$('#fadeout').click(function() {
+				$('#image').fadeOut(3000);
+			});
+		});
+	
+	</script>
+</body>
+</html>

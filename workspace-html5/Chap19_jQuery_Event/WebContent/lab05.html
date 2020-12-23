@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 이벤트5-슬라이딩</title>
+	<style type="text/css">
+		body {
+			width: 360px;
+		}
+		
+		.header {
+			color: #000000;
+			font-size: 24pt;
+		}
+		
+		.content {
+			color: #008000;
+		}
+		
+		.footer {
+			color: #800080;
+			font-size: 14pt;
+		}
+		
+		ul#menubar {
+			width: 360px;
+		}
+		
+		ul#menubar, ul#menubar ul {
+			text-indent: 10px;
+			list-style: none;
+			padding: 0;
+		}
+		
+		li.menu {
+			margin-bottom: 2px;
+		}
+		
+		div.menuitem {
+			height: 32px;
+			line-height: 2;
+			background: #6b8e23;
+			color: #ffffff;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		
+		ul.submenuitem li {
+			height: 32px;
+			line-height: 2;
+			background-color: #f5f5dc;
+			cursor: pointer;	
+		}
+		
+		ul.submenuitem li a {
+			color: #000000;
+			text-decoration: none;
+			overflow: hidden;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		
+		ul.submenuitem li:hover {
+			background: #f0e68c;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<p>Spring Framework</p>
+	</div>
+	
+	<div id="content">
+		<ul id="menubar">
+			<li class="menu">
+				<div class="menuitem">실행환경</div>
+				<ul class="submenuitem">
+					<li><a href="#">화면처리</a></li>
+					<li><a href="#">업무처리</a></li>
+					<li><a href="#">데이터처리</a></li>
+					<li><a href="#">공통기반</a></li>
+					<li><a href="#">배치처리</a></li>
+				</ul>
+			</li>
+			
+			<li class="menu">
+				<div class="menuitem">Spring Framework (5.2.5)</div>
+				<ul class="submenuitem">
+					<li><a href="#">스프링 부트 2.2.6 지원</a></li>
+					<li><a href="#">스프링 프레임워크 코드에서 JDK8 기능 사용</a></li>
+					<li><a href="#">리액티브 프로그래밍 지원</a></li>
+					<li><a href="#">함수형 웹 프레임워크 제공</a></li>
+					<li><a href="#">Kotlin 지원</a></li>
+				</ul>
+			</li>
+			
+			<li class="menu">
+				<div class="menuitem">Spring Security(5.2.3)</div>
+				<ul class="submenuitem">
+					<li><a href="#">OAuth 2.0 지원</a></li>
+					<li><a href="#">현대화된 암호 인코딩(단방향 암호화 기능)</a></li>
+				</ul>
+			</li>
+			
+			<li class="menu">
+				<div class="menuitem">Spring Batch 4.2.2</div>
+				<ul class="submenuitem">
+					<li><a href="#">Spring Framework 5 지원</a></li>
+					<li><a href="#">ItemReader 및 ItemWriter를 위한 빌더 지원</a></li>
+					<li><a href="#">Micrometer(모니터링 도구) 기반의 배치 모니터링 지원</a></li>
+				</ul>
+			</li>
+			
+			<li class="menu">
+				<div class="menuitem">Spring Data JPA 2.2.3</div>
+				<ul class="submenuitem">
+					<li><a href="#">Hibernate 5.4.10</a></li>
+					<li><a href="#">Spring Data JPA 업그레이드 버전 적용</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+	<div id="footer">
+		<p>&copy; 2021 Training</p>
+	</div>
+		
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		/* 
+			* 슬라이딩
+				- HTML 요소의 높이를 조절하여 접었다 폈다(collapsible)할 수 있는 기능.
+				- slideDown(), slideUp() 메서드를 이용 => 네비게이션 등에 사용.
+				- 이미지를 사용할 경우엔 반드시 블록 요소에 감싸서 블록 요소에 슬라이딩 
+				  효과를 주어야 애니메이션 진행 과정에서 픽셀 깨짐 현상 미발생.
+				- slideDown([duration][,callback]) : 요소의 높이를 0에서 원래 값으로 
+				  변경하면서 펼치는 애니메이션 효과를 주기 위해 사용
+				- slideUp([duration][,callback]) : 요소의 높이에서 0으로 변경하면서
+				  접히는 애니메이션 효과를 주기 위해 사용 => display: none; 상태가 됨
+		*/
+		$(document).ready(function() {
+			$("#header").addClass("header");
+			$("#content").addClass("content");
+			$("#footer").addClass("footer");
+			
+			$(".submenuitem").hide();
+			
+			$("div.menuitem").bind("click", function() {
+				if($(this).next().css('display') == 'none') {
+					$(".submenuitem").slideUp();
+				}
+				$(this).next().slideDown();
+			});
+		});
+	</script>	
+</body>
+</html>
