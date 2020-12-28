@@ -60,3 +60,22 @@ delete
 
 select * from video;
 
+-- 문제 12
+-- video 테이블에서 제목이 형인 것을 동생으로 바꾸시오.
+update video
+    set title = '동생'
+    where title = '형';
+    
+select * from video;
+
+-- 문제 13
+-- video 테이블에 있는 모든 데이터를 지우시오.
+delete from video;
+
+select * from video;
+
+-- 문제 14
+-- video 테이블을 제거하시오.
+drop table video;
+
+show tables;
