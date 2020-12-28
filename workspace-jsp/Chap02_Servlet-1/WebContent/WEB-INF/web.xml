@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Chap02_Servlet-1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 매핑해야할 서블릿 파일 지정함 -->
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>kr.gov.servlet1.HelloServelet</servlet-class>
+  </servlet>
+  <!-- 위에서 지정한 매핑할 서블릿 파일을 url-pattern태그를 이용하여
+  		url창에 표식이 되도록 함. 위에서 서블릿네임으로 지정한 값과 동일하게 입력을 해줘야 함. -->
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<url-pattern>/servlet</url-pattern>
+  </servlet-mapping>
+</web-app>
