@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+</head>
+<body>
+	<form action="join" method="post">
+		이름 : <input type="text" name="name" size="10" /><br/>
+		아이디 : <input type="text" name="id" size="10" /><br/>
+		비밀번호 : <input type="password" name="pw" size="10" /><br/>
+		<!-- check박스는 다중선택이 가능함. name이라는 속성은 반드시 동일한 값으로 설정해야함. -->
+		취미 : <input type="checkbox" name="hobby" value="read"/>독서
+			  <input type="checkbox" name="hobby" value="cook"/>요리
+			  <input type="checkbox" name="hobby" value="run"/>조깅
+			  <input type="checkbox" name="hobby" value="swim"/>수영
+			  <input type="checkbox" name="hobby" value="bicycle"/>라이딩		
+			  <br/>
+		<!-- radio는 단 하나만 선택 가능함. name이라는 속성은 반드시 동일한 값으로 설정해야함. -->
+		<!-- checked속성 : 화면이 나타날때, 이미 선택되어서 나타내주는 속성임. -->
+		전공 : <input type="radio" name="major" value="kor" checked="checked"/>국문과
+			  <input type="radio" name="major" value="eng"/>영문학과
+			  <input type="radio" name="major" value="math"/>수학과
+			  <input type="radio" name="major" value="des"/>디자인과
+			  <br/>
+		<!-- select 태그 : 리스트박스와 유사함. -->
+		<select name="protocol">
+			<option value="http" selected="selected">HTTP</option>
+			<option value="ftp">FTP</option>
+			<option value="smtp">SMTP</option>
+			<option value="telnet">TELNET</option>
+		</select>
+		<br/>
+		
+		<input type="submit" value="전송" />
+		<input type="reset" value="초기화" />
+		<br/>
+		
+	</form>
+</body>
+</html>
