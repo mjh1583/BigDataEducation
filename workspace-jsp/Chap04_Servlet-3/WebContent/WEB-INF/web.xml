@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Chap04_Servlet-3</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 첫번째 방법 -->
+  <!-- <servlet>
+  	특정 서블릿을 지정하는 코드
+  	<servlet-name>initParam</servlet-name>
+  	<servlet-class>kr.gov.httpservlet2.InitParam</servlet-class>
+  	
+  	특정 서블릿(kr.gov.httpservlet2.InitParam)에만 적용되는 부분임.
+  		 초기화 파라메터를 init-param태그를 이용하여 지정함.
+  	<init-param>
+  		<param-name>id</param-name>
+  		<param-value>admin</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>pw</param-name>
+  		<param-value>0217</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>path</param-name>
+  		<param-value>C:\\workspace-jsp</param-value>
+  	</init-param>
+  	
+  </servlet>
+  
+  서블릿 매핑코드
+  <servlet-mapping>
+  	<servlet-name>initParam</servlet-name>
+  	<url-pattern>/InitP</url-pattern>
+  </servlet-mapping> -->
+  
+  <!-- 하나의 프로젝트 안에 여러 서블릿 파일에서 함께 공유하면서 사용할 수 있도록
+  	   context-param태그를 이용하여 파라메터값을 설정함.
+  	   특정 서블릿 매핑하는 코드가 없는 것을 알 수 있음. -->
+  <context-param>
+	<param-name>id</param-name>
+	<param-value>scott55</param-value>  
+  </context-param>
+  
+  <context-param>
+	<param-name>pw</param-name>
+	<param-value>tiger55</param-value>  
+  </context-param>
+  
+  <context-param>
+	<param-name>path</param-name>
+	<param-value>C:\\workspace-jsp</param-value>  
+  </context-param>
+  
+</web-app>

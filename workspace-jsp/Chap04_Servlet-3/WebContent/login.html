@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인 화면</title>
+</head>
+<body>
+	<form name="frmLogin" action="login" method="post" enctype="UTF-8">
+		아이디 : <input type="text" name="user_id" /><br/>
+		비밀번호 : <input type="password" name="user_pw" /><br/>
+		<input type="button" onclick="func_validate()" value="로그인" />
+		<input type="reset" value="재입력" />
+		<!-- hidden 속성 : 클라이언트에게 숨겨진 내용으로 서버에 전송하고자 할 때 사용함.(로그인 시간, IP 등등) -->
+		<input type="hidden" name="user_address" value="구미시 원평동" />
+	</form>
+	
+	<script type="text/javascript">
+		function func_validate() {
+			/* frmLogin 변수 : document(웹페이지 화면)객체의 아래에 있는 
+			frmLogin태그 이름을 대입함.*/
+			var frmLogin = document.frmLogin;
+			var user_id = frmLogin.user_id.value;
+			var user_pw = frmLogin.user_pw.value;
+			
+			if( (user_id.length == 0) || (user_id == "") || 
+					(user_pw.length == 0) || (user_pw == "")) {
+				alert("아이디와 비밀번호는 필수 사항입니다.");
+			}
+			else {
+				frmLogin.method = "post";
+				frmLogin.action = "login";
+				frmLogin.submit();
+			}
+				
+		}
+		
+	</script>
+</body>
+</html>
