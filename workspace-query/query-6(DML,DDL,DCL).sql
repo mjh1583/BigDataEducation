@@ -204,8 +204,3 @@ create table NewBook(
 );
 
 desc newbook;
-
-
-
-
-
