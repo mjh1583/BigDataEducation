@@ -57,4 +57,8 @@
 	<param-value>C:\\workspace-jsp</param-value>  
   </context-param>
   
+  <!-- <listener>
+  	<listener-class>kr.gov.servletcontextlistener.ServletListener</listener-class>
+  </listener> -->
+  
 </web-app>
