@@ -204,3 +204,82 @@ create table NewBook(
 );
 
 desc newbook;
+
+-- -------------------------------------------------------------------------------------------------------------------
+drop database if exists sqldb;
+create database sqldb;
+use sqldb;
+
+drop table if exists test1;
+create table test1(
+	id int,
+    username varchar(3),
+    age int
+);
+
+insert into test1 values(1, '홍길동', 33);
+select * 
+	from test1;
+
+-- 원하는 필드에만 저장하고 싶다면 아래와 같이 쿼리를 작성하면 됨.
+-- 저장하지 않은 필드는 당연히 null이 됨.
+insert into test1(id, username) values(2, '김연아');
+
+insert into test1(username, age, id) values('김초하', 28, 3);
+insert into test1(username, age, id) values('이초하', 'ab', 3);  -- 데이터 타입 불일치
+
+-- auto_increment 구문 : DB엔진이 자동으로 행이 추가될때마다 1씩 증가시킴.
+drop table if exists test2;
+create table test2(
+	id int auto_increment primary key,
+    username varchar(3),
+    age int
+);
+
+insert into test2 values(null, '김철', 35),
+						(null, '김구', 35),
+						(null, '김군', 35);
+                        
+select * 
+	from test2;
+
+insert into test2 values(10, '김범', 35);
+
+delete from test2
+	where id = 2;
+    
+insert into test2 values(null, '김범', 35);  -- 마지막 수를 기준으로 1 증가함(단점)
+
+-- auto_increment 한 필드가 마지막으로 입력된 것을 조회할때는 last_insert_id() 함수
+-- 이용하면 편리함.
+select last_insert_id();
+
+-- 테이블에 관련된 수정을 하고자하면 alter 이용하면 됨.
+alter table test2 auto_increment = 100;  -- 자동증가를 100부터 함.
+insert into test2 values(null, '손오공', 35);
+select * 
+	from test2;
+insert into test2 values(null, '손오', 500);
+
+drop table if exists test3;
+create table test3(
+	id int auto_increment primary key,
+    username varchar(3),
+    age int
+);
+
+alter table test3 auto_increment = 1000;
+
+insert into test3 values(null, '나연', 33);
+insert into test3 values(null, '동수', 30);
+insert into test3 values(null, '은혁', 13);
+insert into test3 values(null, '미혁', 15);
+insert into test3 values(null, '우혁', 17);
+
+-- 아래는 서버변수임(시스템 변수).
+-- set 구문 다음 @@붙으면 서버변수임.
+-- 증가를 1씩 하는게 아니라, 3씩 하게끔 설정하는 것임.
+set @@auto_increment_increment = 3;
+
+select *
+	from test3;
