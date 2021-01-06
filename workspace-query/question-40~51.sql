@@ -26,4 +26,4 @@ select max(sal) - min(sal)
 select job, min(sal)
 	from emp
 	group by job 
-	order by sal desc;
+	order by min(sal) desc;
