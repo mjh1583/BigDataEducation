@@ -53,6 +53,32 @@
 		out.println("==========================================================<br/>");
 		int sessionInterval = session.getMaxInactiveInterval();
 		out.println("세션 유효시간(초) : " + sessionInterval + "<br/>");
+		
+		out.println("==========================================================<br/>");
+		//gumi세션의 특정한 값을 삭제하는 코드
+		//session.removeAttribute("gumi");
+		
+		//세션의 모든 값을 삭제
+		session.invalidate();
+		
+		//유효한 세션 id가 있느냐?
+		if(request.isRequestedSessionIdValid()) {
+			out.println("session valid");
+		}
+		else {
+			out.println("session Invalid");
+		}
+		
+		//enumeration = session.getAttributeNames();
+		
+		//가져올 데이터가 있느냐?
+		/* while(enumeration.hasMoreElements()) {
+			sName = enumeration.nextElement();  //있으면 가져와라
+			sValue = session.getAttribute(sName).toString();
+			
+			out.println("sName : " + sName + "<br/>");
+			out.println("sValue : " + sValue + "<br/>");
+		} */
 	%>
 </body>
 </html>

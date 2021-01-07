@@ -21,7 +21,7 @@
 		//세션의 속성을 지정하는 코드
 		session.setAttribute("gumi", 202102);
 		session.setAttribute("zoom", "jsp");
-		session.setAttribute("daegu", "jsp");
+		session.setAttribute("daegu", "mysql");
 		
 		/* 스크립트릿으로 내부객체인 session객체를 이용하여 값을 설정함
 		   현재 이 jsp파일이 서버에 요청을 하게 되면 컨테이너가 jsp파일 서블릿으로 변환함.
