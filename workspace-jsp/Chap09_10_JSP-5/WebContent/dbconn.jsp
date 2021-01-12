@@ -7,11 +7,11 @@
 	Connection connection = null;
 	
 	String url = "jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC";
-	String id = "root";  //접속 아이디
-	String pw = "0217";  //접속 비밀번호
+	String user = "root";  //접속 아이디
+	String password = "0217";  //접속 비밀번호
 	String driver = "com.mysql.cj.jdbc.Driver";
 	
 	Class.forName(driver);
-	DriverManager.getConnection(url, id, pw);
+	connection = DriverManager.getConnection(url, user, password);
 	
 %>
