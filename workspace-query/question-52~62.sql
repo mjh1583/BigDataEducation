@@ -24,19 +24,22 @@ select concat('안녕하세요', space(2), '반갑습니다');
 select instr('안녕하세요', '하'); 
 select locate('하', '안녕하세요'); 
  
+-- 문제 58
+-- 숫자 121245.78945를 소숫점 3자리로 출력하시오.
+select format(121245.78945, 3); 
 
+-- 문제 59
+-- 숫자 100을 8진수, 16진수, 2진수로 출력하시오.
+select oct(100), hex(100), bin(100);
 
+-- 문제 60
+-- 문자열 'MySQL programming'을 대문자로 출력하시오.
+select upper('MySQL programming'), ucase('MySQL programming') ;
 
+-- 문제 61
+-- 문자열 'MySQL programming'을 역순으로 출력하시오.
+select reverse('MySQL programming');
 
-
-
-
-
-
-
-
-
-
-
-
-
+-- 문제 62
+-- 문자열 'MySQL programming'을 programming만 출력하시오.
+select substring('MySQL programming', 7) ;
