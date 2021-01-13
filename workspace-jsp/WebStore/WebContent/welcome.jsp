@@ -27,6 +27,9 @@
 			<h3><%= welcome %></h3>
 			
 			<%
+				//웹사이트의 리프레쉬 기능 추가
+				response.setIntHeader("Refresh", 5);
+				
 				Calendar calendar = Calendar.getInstance();
 				int hour = calendar.get(Calendar.HOUR_OF_DAY);
 				int minute = calendar.get(Calendar.MINUTE);

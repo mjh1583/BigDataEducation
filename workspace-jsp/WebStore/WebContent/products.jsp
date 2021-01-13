@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:useBean id="productDAO" class="kr.gov.dao.ProductRepository" scope="session"/>
+<%-- <jsp:useBean id="productDAO" class="kr.gov.dao.ProductRepository" scope="session"/> --%>
 
 <% request.setCharacterEncoding("utf-8"); %>
 
@@ -21,13 +21,15 @@
 	
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품목록</h1>
+			<h1 class="display-3">상품 목록</h1>
 		</div>
 	</div>
 	
 	<%
+		ProductRepository dao = ProductRepository.getInstance();
+		
 		//상품목록 가져옴
-		ArrayList<Product> listOfProducts = productDAO.getAllProducts();
+		ArrayList<Product> listOfProducts = dao.getAllProducts();
 	%>
 	
 	<div class="container">
@@ -38,8 +40,10 @@
 			%>
 				<div class="col-md-4">
 					<h3><%= product.getPname() %></h3>
-					<h3><%= product.getDescription() %></h3>
-					<h3><%= product.getUnitPrice() %></h3>
+					<p><%= product.getDescription() %></p>
+					<p><%= product.getUnitPrice() %>원</p>
+					<p><a href="./product.jsp?id=<%= product.getProductId() %>"
+						class="btn btn-secondary" role="button">상세 정보 &raquo;</a></p>
 				</div>
 			<%
 				}
