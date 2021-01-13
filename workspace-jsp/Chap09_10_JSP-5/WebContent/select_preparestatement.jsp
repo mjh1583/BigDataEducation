@@ -57,8 +57,8 @@
 	</table>
 	<br/>
 	<a href="insert_form_preparestatement.jsp">회원가입</a> &nbsp;&nbsp;&nbsp;
-	<a href="update_form_statement.jsp">회원 정보 수정</a> &nbsp;&nbsp;&nbsp;
-	<a href="delete_form_statement.jsp">회원 정보 삭제</a>
+	<a href="update_form_preparestatement.jsp">회원 정보 수정</a> &nbsp;&nbsp;&nbsp;
+	<a href="delete_form_preparestatement.jsp">회원 정보 삭제</a>
 	
 </body>
 </html>
