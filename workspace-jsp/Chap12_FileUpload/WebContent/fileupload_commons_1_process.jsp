@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>파일 업로드 처리</title>
+	<title>파일 업로드(common)</title>
 </head>
 <body>
 	<%
