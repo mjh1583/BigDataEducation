@@ -26,6 +26,7 @@ public class ProductRepository {
 		phone.setUnitPrice(1490000);
 		phone.setCondition("New");
 		phone.setNumberOfStock(7000);
+		phone.setFilename("iphone-12-pro-max-gold-hero.jpg");
 		
 		Product notebook = new Product("15U70N-PA70K", "LG 울트라 기어", 1930000);
 		notebook.setDescription("15-inch, 1920*1080-pixel, IPS LED display, 10세대 인텔 코어 i7-10510U 프로세서");
@@ -34,6 +35,7 @@ public class ProductRepository {
 		notebook.setUnitPrice(1930000);
 		notebook.setCondition("Refurblished");
 		notebook.setNumberOfStock(5000);
+		notebook.setFilename("usp_0103.jpg");;
 		
 		Product tablet = new Product("SM-T970NZKEKOO", "갤럭시 탭 S7+", 1149500);
 		tablet.setDescription("12-inch, 2800*1752-pixel, Super AMOLED display, Octa-Core 프로세서");
@@ -42,6 +44,7 @@ public class ProductRepository {
 		tablet.setUnitPrice(1149500);
 		tablet.setCondition("Old");
 		tablet.setNumberOfStock(3000);
+		tablet.setFilename("b008b623-6fe8-4191-82bd-d988db87e6e6.jpg");
 		
 		listOfProducts.add(phone);
 		listOfProducts.add(notebook);

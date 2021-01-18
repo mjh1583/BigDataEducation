@@ -14,7 +14,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>상품목록</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>	
@@ -39,6 +40,8 @@
 					Product product = listOfProducts.get(i);
 			%>
 				<div class="col-md-4">
+					<!-- 경로 지정해서 이미지 출력 -->
+					<img alt="" src="D:/workspace-jsp/upload/<%= product.getFilename()%>" style="width: 100%" />
 					<h3><%= product.getPname() %></h3>
 					<p><%= product.getDescription() %></p>
 					<p><%= product.getUnitPrice() %>원</p>

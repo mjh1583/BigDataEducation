@@ -6,7 +6,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>스토어</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>	

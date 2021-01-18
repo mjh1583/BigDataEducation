@@ -21,6 +21,7 @@ public class Product {
 	private String category;  //분류
 	private long numberOfStock;  //재고 수
 	private String condition;  //신상품 or 중고품 or 재생품
+	private String filename;  //제품 이미지
 	
 	public Product() {
 		
@@ -95,6 +96,14 @@ public class Product {
 
 	public void setCondition(String condition) {
 		this.condition = condition;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	
 }

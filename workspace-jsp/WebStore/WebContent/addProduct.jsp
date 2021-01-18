@@ -5,7 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>상품 등록</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>	
@@ -18,7 +19,8 @@
 	
 	<div class="container">
 		<!-- class="form-horizontal" : 폼 요소들이 수평적으로 배치되도록 해줌 -->
-		<form action="./processAddProduct.jsp" name="newProduct" class="form-horizontal" method="get">
+		<form action="./processAddProduct.jsp" name="newProduct" class="form-horizontal" 
+		method="post" enctype="multipart/form-data">
 			<div class="form-group row">
 				<!-- 화면크기 768px이상일때 col-sm-? 부분이 적용되고, div 요소의 block 특성에 의해
 				100% 너비를 가지면 수직으로 쌓이게 만들어줌. -->
@@ -72,10 +74,17 @@
 			
 			<div class="form-group row">
 				<label class="col-sm-2"><b>상태</b></label>
-				<div class="col-sm-4">
+				<div class="col-sm-5">
 					<input type="radio" name="condition" value="New" /> 신규 제품
 					<input type="radio" name="condition" value="Old" /> 중고 제품
 					<input type="radio" name="condition" value="Refurblished" /> 재생 제품
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-sm-2"><b>이미지</b></label>
+				<div class="col-sm-5">
+					<input type="file" name="productImage" class="form-cotrol" />
 				</div>
 			</div>
 			
