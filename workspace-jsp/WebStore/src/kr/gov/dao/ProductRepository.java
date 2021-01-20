@@ -19,7 +19,7 @@ public class ProductRepository {
 	public ProductRepository() {
 		//DB 연동전 임시데이터로 활용
 		
-		Product phone = new Product("iPhone13,4", "iPhone 12 Pro Max", 1490000);
+		Product phone = new Product("P1234", "iPhone 12 Pro Max", 1490000);
 		phone.setDescription("6.7-inch, 2778*1284-pixel, OLED Super Retina XDR display, cameras");
 		phone.setCategory("Smart Phone");
 		phone.setManufacturer("Apple");
@@ -28,7 +28,7 @@ public class ProductRepository {
 		phone.setNumberOfStock(7000);
 		phone.setFilename("iphone-12-pro-max-gold-hero.jpg");
 		
-		Product notebook = new Product("15U70N-PA70K", "LG 울트라 기어", 1930000);
+		Product notebook = new Product("P1235", "LG 울트라 기어", 1930000);
 		notebook.setDescription("15-inch, 1920*1080-pixel, IPS LED display, 10세대 인텔 코어 i7-10510U 프로세서");
 		notebook.setCategory("Notebook");
 		notebook.setManufacturer("LG");
@@ -37,7 +37,7 @@ public class ProductRepository {
 		notebook.setNumberOfStock(5000);
 		notebook.setFilename("usp_0103.jpg");;
 		
-		Product tablet = new Product("SM-T970NZKEKOO", "갤럭시 탭 S7+", 1149500);
+		Product tablet = new Product("P1236", "갤럭시 탭 S7+", 1149500);
 		tablet.setDescription("12-inch, 2800*1752-pixel, Super AMOLED display, Octa-Core 프로세서");
 		tablet.setCategory("Tablet");
 		tablet.setManufacturer("Samsung");

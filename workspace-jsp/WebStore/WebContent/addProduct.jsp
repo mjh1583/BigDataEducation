@@ -7,6 +7,8 @@
 	<title>상품 등록</title>
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+	
+	<script type="text/javascript" src="resources/js/validation.js"></script>
 </head>
 <body>
 	<jsp:include page="menu.jsp"/>	
@@ -26,21 +28,21 @@
 				100% 너비를 가지면 수직으로 쌓이게 만들어줌. -->
 				<label class="col-sm-2"><b>상품 코드</b></label>
 				<div class="col-sm-3">
-					<input type="text" name="productId" class="form-control" placeholder="상품코드를 입력하세요." />
+					<input type="text" id="productId" name="productId" class="form-control" placeholder="상품코드를 입력하세요." />
 				</div>
 			</div>
 			
 			<div class="form-group row">
 				<label class="col-sm-2"><b>상품명</b></label>
 				<div class="col-sm-3">
-					<input type="text" name="pname" class="form-control" placeholder="상품명을	 입력하세요." />
+					<input type="text" id="pname" name="pname" class="form-control" placeholder="상품명을	 입력하세요." />
 				</div>
 			</div>
 			
 			<div class="form-group row">
 				<label class="col-sm-2"><b>가격</b></label>
 				<div class="col-sm-3">
-					<input type="text" name="unitPrice" class="form-control" placeholder="가격을 입력하세요." />
+					<input type="text" id="unitPrice" name="unitPrice" class="form-control" placeholder="가격을 입력하세요." />
 				</div>
 			</div>
 			
@@ -68,7 +70,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2"><b>재고수량</b></label>
 				<div class="col-sm-3">
-					<input type="text" name="numberOfStock" class="form-control" placeholder="재고수량을 입력하세요." />
+					<input type="text" id="numberOfStock" name="numberOfStock" class="form-control" placeholder="재고수량을 입력하세요." />
 				</div>
 			</div>
 			
@@ -81,6 +83,7 @@
 				</div>
 			</div>
 			
+			<!-- 이미지 업로드 부분 -->
 			<div class="form-group row">
 				<label class="col-sm-2"><b>이미지</b></label>
 				<div class="col-sm-5">
@@ -91,7 +94,9 @@
 			<div class="form-group row">
 				<!-- class="col-sm-offset-2" 지정은 col의 2만큼 띄움 -->
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-primary" value="등록" />
+					<!-- 타입을 button으로 바꾸는 이유 : submit 타입을 주게되면 유효성 검사하다가
+					오류가 발생해도 action 속성 값으로 페이지 이동이 일어나기 때문에.  -->
+					<input type="button" class="btn btn-primary" value="등록" onclick="checkAddProduct()" />
 					<input type="reset" class="btn btn-secondary" value="초기화" />
 				</div>
 			</div>
