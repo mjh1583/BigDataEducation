@@ -1,6 +1,6 @@
 <%@page import="kr.gov.dao.ProductRepository"%>
 <%@page import="kr.gov.dto.Product"%>
-<%@page import="java.util.ArrayList"%>
+<%@page errorPage="exceptionNoProductId.jsp" %>  <!-- id값이 유효하지 않으면 에러페이지로 이동시킴 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
