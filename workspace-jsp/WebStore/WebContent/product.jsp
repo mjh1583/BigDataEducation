@@ -38,7 +38,9 @@
 	<div class="container">
 		<div class="row" align="center">
 			<div class="col-md-5">
-				<img alt="" src="D:/workspace-jsp/upload/<%= product.getFilename()%>" style="width: 100%" />
+				<%-- <img alt="" src="D:/workspace-jsp/upload/<%= product.getFilename()%>" style="width: 100%" /> --%>
+				<img alt="" src="${pageContext.request.contextPath}/resources/images/<%= product.getFilename()%>"
+				 style="width: 100%" />
 			</div>
 			<div class="col-md-6">
 				<h3><%= product.getPname() %></h3>

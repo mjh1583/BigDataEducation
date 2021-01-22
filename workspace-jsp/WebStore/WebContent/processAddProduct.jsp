@@ -11,7 +11,8 @@
 	
 	//addProduct.jsp에서 사용자가 업로드한 이미지 부분을 받아 저장.
 	String filename = "";
-	String realFolder = "D:\\workspace-jsp\\upload";  //웹 애플리케이션에서 절대 경로
+	//String realFolder = "D:\\workspace-jsp\\upload";  //웹 애플리케이션에서 절대 경로
+	String realFolder = "D:\\workspace-jsp\\WebStore\\WebContent\\resources\\images";  //웹 애플리케이션에서 절대 경로
 	int maxsize = 10 * 1024 * 1024;  //최대 업로드 크기(10MB)
 	String encType = "utf-8";
 	
