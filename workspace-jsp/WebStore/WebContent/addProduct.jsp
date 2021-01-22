@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +14,24 @@
 	<script type="text/javascript" src="resources/js/validation.js"></script>
 </head>
 <body>
+	<fmt:setLocale value='<%= request.getParameter("language") %>'/>
+	<fmt:bundle basename="kr.gov.resourceBundle.message">
+
 	<jsp:include page="menu.jsp"/>	
 	<!-- 점보트론 : 대형전광판이라는 의미. 점보트론 안에 다양한 컴포넌트(텍스트, 이미지, 회사로고 등) 포함 기능 -->
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품 등록</h1>
+			<!-- <h1 class="display-3">상품 등록</h1> -->
+			<h1 class="display-3"><fmt:message key="title" /> </h1>
 		</div>
 	</div>
 	
 	<div class="container">
+		<!-- 한글 혹은 영어로 표시할지 선택하는 부분 추가 -->
+		<div class="text-right">
+			<a href="?language=ko">Korean</a>||<a href="?language=en">English</a>
+		</div>
+		
 		<!-- class="form-horizontal" : 폼 요소들이 수평적으로 배치되도록 해줌 -->
 		<form action="./processAddProduct.jsp" name="newProduct" class="form-horizontal" 
 		method="post" enctype="multipart/form-data">
@@ -104,6 +116,7 @@
 		</form>
 		<hr>
 	</div>
+	</fmt:bundle>
 	
 	<jsp:include page="footer.jsp"/>
 </body>
