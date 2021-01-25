@@ -155,7 +155,7 @@
 		<!-- docBase : 컨텍스트에 대한 실제 웹 애플리케이션이 위치한 경로. -->
 		<!-- path : 웹 어플리케이션의 컨텍스트 이름. 웹 브라우저에서 실제 웹 애플리케이션을 요청하는 이름. -->
 		<!-- reloadable : 실행 중 소스코드가 수정될 경우 바로 갱신할지 설정함. 만약에 false로 설정하면 톰캣을 다시 중지했다가 실행해야 변경된 소스가 반영됨. -->
-      </Host>
+      <Context docBase="WebStore" path="/WebStore" reloadable="true" source="org.eclipse.jst.jee.server:WebStore"/></Host>
     </Engine>
   </Service>
 </Server>

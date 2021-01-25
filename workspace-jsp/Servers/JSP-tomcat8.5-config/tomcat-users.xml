@@ -31,11 +31,13 @@
   examples web application, do not forget to remove the <!.. ..> that surrounds
   them. You will also need to set the passwords to something appropriate.
 -->
-<!--
+<!-- 톰캣서버에 각각 role 2개를 명시한 것임, 3명의 user가 역할 맡음. -->
   <role rolename="tomcat"/>
   <role rolename="role1"/>
-  <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
-  <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
-  <user username="role1" password="<must-be-changed>" roles="role1"/>
--->
+  <role rolename="admin"/>		<!-- 새로운 역할 추가 -->
+  <user username="tomcat" password="tomcat0217" roles="tomcat"/>
+  <user username="both" password="both0217" roles="tomcat,role1"/>
+  <user username="role1" password="role0217" roles="role1"/>
+  <user username="admin" password="admin0217" roles="admin"/>
+
 </tomcat-users>
