@@ -15,4 +15,33 @@
   	<error-code>404</error-code>
   	<location>/exceptionNoPage.jsp</location>
   </error-page>
+  
+  <!-- 시큐리티 역할 추가 -->
+  <security-role>
+  	<description>관리자</description>
+  	<role-name>admin</role-name>
+  </security-role>
+  
+  <!-- 제약조건 추가 -->
+  <security-constraint>
+  	<display-name>WebStore Security</display-name>
+  	<web-resource-collection>		<!-- 웹 자원 제약조건 설정 -->
+  		<web-resource-name>WebStore</web-resource-name>
+  		<description></description>
+  		<url-pattern>/addProduct.jsp</url-pattern>
+  	</web-resource-collection>
+  	
+  	<auth-constraint>		<!-- 권한 제약조건 설정 -->
+  		<description>권한 관리자명</description>
+  		<role-name>admin</role-name>
+  	</auth-constraint>
+  </security-constraint>
+  
+  <login-config>		<!-- 시큐리티 인증 설정 -->
+  	<auth-method>FORM</auth-method>		<!-- 폼 인증 처리 방식 -->
+  	<form-login-config>
+  		<form-login-page>/login.jsp</form-login-page>
+  		<form-error-page>/login_failed.jsp</form-error-page>
+  	</form-login-config>
+  </login-config>
 </web-app>

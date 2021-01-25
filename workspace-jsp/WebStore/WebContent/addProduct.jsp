@@ -30,6 +30,7 @@
 		<!-- 한글 혹은 영어로 표시할지 선택하는 부분 추가 -->
 		<div class="text-right">
 			<a href="?language=ko">Korean</a>||<a href="?language=en">English</a>
+			<a href="logout.jsp" class="btn btn-sm btn-success pull-right"><b>로그아웃</b></a>  <!-- 로그아웃 버튼 -->
 		</div>
 		
 		<!-- class="form-horizontal" : 폼 요소들이 수평적으로 배치되도록 해줌 -->
