@@ -51,13 +51,31 @@
 				<p><b>재고수량 : </b><%= product.getNumberOfStock() %></p>
 				<h4><%= product.getUnitPrice() %>원</h4>
 				
-				<p><a href="#" class="btn btn-info">상품 주문 &raquo;</a></p>
-				<a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a>
+				<p><form name="addForm" action="./addCart.jsp?id=<%= product.getProductId() %>" method="post">
+					<!-- 상품 주문을 클릭하면 자바스크립트 핸들러 함수인 addToCart() 호출  -->
+					<a href="#" class="btn btn-info" onclick="addToCart()">상품 주문 &raquo;</a>
+					<!-- 장바구니 버튼 추가, 클릭시 cart.jsp로 이동함 -->
+					<a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
+					<a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a>
+				</form>
+			
 			</div>
 		</div>
 		<hr>
 	</div>
 	
 	<jsp:include page="footer.jsp"/>
+	
+	<script type="text/javascript">
+		/* 장바구니에 추가하기 위한 핸들러 함수 */
+		function addToCart() {
+			if(confirm('해당 상품을 장바구니에 추가하시겠습니까?')) {  //confirm() : 사용자가 선택할 때 이용
+				document.addForm.submit();
+			}
+			else {
+				document.addForm.reset();
+			}
+		}
+	</script>
 </body>
 </html>

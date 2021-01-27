@@ -44,4 +44,30 @@
   		<form-error-page>/login_failed.jsp</form-error-page>
   	</form-login-config>
   </login-config>
+  
+  <!-- 필터 적용 -->
+  <filter>
+  	<filter-name>LogFilter</filter-name>
+  	<filter-class>kr.gov.filter.LogFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>LogFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 필터(파일기록) 적용 -->
+  <filter>
+  	<filter-name>LogFileFilter</filter-name>
+  	<filter-class>kr.gov.filter.LogFileFilter</filter-class>
+  	<init-param>
+  		<param-name>filename</param-name>  <!-- 로그 기록을 남길 파일 경로 지정 -->
+  		<param-value>D:\\workspace-jsp\\log\\webstore.log</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>LogFileFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
