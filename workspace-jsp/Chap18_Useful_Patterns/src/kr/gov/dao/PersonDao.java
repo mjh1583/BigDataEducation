@@ -28,7 +28,7 @@ public class PersonDao {
 	private Connection getConnection() throws Exception {
 		
 		Context context = new InitialContext();
-		DataSource dataSource = (DataSource)context.lookup("java:comp/env" + "jdbc/dbconn");
+		DataSource dataSource = (DataSource)context.lookup("java:comp/env/" + "jdbc/dbconn");
 		Connection conn = dataSource.getConnection();
 		System.out.println("DBCP 연동 완료");
 		
@@ -68,12 +68,23 @@ public class PersonDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			/*
-			 * resultSet.close(); pstmt.close(); connection.close();
-			 */
+			try {
+				if(resultSet != null) {
+					resultSet.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
 		
 		return dtos;
 		
-	}
+	}//personsAll()
+	
 }
