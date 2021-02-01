@@ -1,3 +1,7 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
@@ -54,6 +58,8 @@
 	String fname = (String)files.nextElement();
 	filename = multi.getFilesystemName(fname);
 	
+	//아래 내용 DB입력으로 대체
+	/* 
 	ProductRepository dao = ProductRepository.getInstance();
 	Product newProduct = new Product();
 	
@@ -68,9 +74,40 @@
 	newProduct.setCondition(condition);
 	//이미지 저장 부분
 	newProduct.setFilename(filename);
-	
+	 
 	//ArrayList에 새상품을 추가
 	dao.addProduct(newProduct);
+	*/
+	Connection conn = null;
+	
+	String url = "jdbc:mysql://localhost:3306/webstoredb?serverTimezone=UTC";
+	String user = "root";
+	String password = "0217";
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");  //드라이버명
+	conn = DriverManager.getConnection(url, user, password);  //연결 객체 생성
+	
+	PreparedStatement pstmt = null;
+	String sql = "insert into product values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	pstmt = conn.prepareStatement(sql);
+	
+	/* 9개의 사용자로부터 입력받은 데이터를 DB에 저장 */
+	pstmt.setString(1, productId);
+	pstmt.setString(2, pname);
+	pstmt.setInt(3, price);
+	pstmt.setString(4, description);
+	pstmt.setString(5, manufacturer);
+	pstmt.setString(6, category);
+	pstmt.setLong(7, stock);
+	pstmt.setString(8, condition);
+	pstmt.setString(9, filename);
+	
+	pstmt.executeUpdate();
+	System.out.println("상품 등록 완료");
+	
+	//자원 해제
+	if(pstmt != null) pstmt.close();
+	if(conn != null) conn.close();
 	//페이지 이동시킴
 	response.sendRedirect("./products.jsp");
 %>

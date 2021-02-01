@@ -33,6 +33,31 @@
 		
 		//넘어온 상품 아이디값을 이용해 실제 해당하는 Product 객체를 얻음.
 		Product product = dao.getProductById(id);
+		
+		/* 
+		Connection conn = null;
+		
+		String url = "jdbc:mysql://localhost:3306/webstoredb?serverTimezone=UTC";
+		String user = "root";
+		String password = "0217";
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");  //드라이버명
+		conn = DriverManager.getConnection(url, user, password);  //연결 객체 생성
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from product where productId = ?";
+			
+		pstmt = conn.prepareStatement(sql);  /* Connection 객체에 쿼리문 넘겨주고 PrepareStatement를 얻음 */
+		/*
+		pstmt.setString(id);
+		
+		rs = pstmt.executeQuery();  /* 쿼리문 결과 받아옴 */
+		/*
+		while(rs.next()) {
+			
+		}
+		*/
 	%>
 	
 	<div class="container">
