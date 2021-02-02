@@ -65,7 +65,7 @@
 	 					}
 	 					else if(edit.equals("delete")) {
 					%>
-					<a href="#" onclick="deleteConfirm('<%= rs.getString("productId") %>')"
+					<a href="#" onclick="deleteConfirm('<%=rs.getString("productId")%>')"
 					 class="btn btn-danger" role="button">삭제 &raquo;</a>
 					<%
 	 					}

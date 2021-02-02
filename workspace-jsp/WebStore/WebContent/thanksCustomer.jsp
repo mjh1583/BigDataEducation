@@ -53,7 +53,7 @@
 		<p>주문번호 : <% out.println(shopping_cartId); %></p>
 	</div>
 	
-	<div class="container">
+	<div class="container text-center">
 		<p><a href="./products.jsp" class="btn btn-secondary">&laquo;상품 목록</a></p>
 	</div>
 	

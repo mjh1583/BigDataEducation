@@ -55,7 +55,90 @@
 			<div class="col-md-5">
 				<img alt="사진" src="${pageContext.request.contextPath}/resources/images/<%= rs.getString("filename") %>" 
 				style="width: 100%">
-				
+			</div>
+			
+			<div class="col-md-7">
+				<form action="./processUpdateProduct.jsp" name="newProduct" class="form-horizontal" 
+				method="post" enctype="multipart/form-data">
+					<div class="form-group row">
+						<label class="col-sm-3">상품코드</label>
+						<div class="col-sm-3">
+							<input type="text" id="productId" name="productId" class="form-control"
+							value="<%= rs.getString("productId") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">상품명</label>
+						<div class="col-sm-3">
+							<input type="text" id="pname" name="pname" class="form-control"
+							value="<%= rs.getString("pname") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">상품가격</label>
+						<div class="col-sm-3">
+							<input type="text" id="unitPrice" name="unitPrice" class="form-control"
+							value="<%= rs.getString("unitPrice") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">상세 설명</label>
+						<div class="col-sm-3">
+							<input type="text" id="description" name="description" class="form-control"
+							value="<%= rs.getString("description") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">제조사</label>
+						<div class="col-sm-3">
+							<input type="text" id="manufacturer" name="manufacturer" class="form-control"
+							value="<%= rs.getString("manufacturer") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">카테고리</label>
+						<div class="col-sm-3">
+							<input type="text" id="category" name="category" class="form-control"
+							value="<%= rs.getString("category") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">재고 수</label>
+						<div class="col-sm-3">
+							<input type="text" id="numberOfStock" name="numberOfStock" class="form-control"
+							value="<%= rs.getString("numberOfStock") %>">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">상태</label>
+						<div class="col-sm-5">
+							<input type="radio" name="condition" value="New">신규 제품<br/>
+							<input type="radio" name="condition" value="Old">중고 제품<br/>
+							<input type="radio" name="condition" value="Refurblished">재생 제품<br/>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-sm-3">이미지</label>
+						<div class="col-sm-5">
+							<input type="file" name="filename" class="form-control">
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<div class="col-sm-offset-2 col-sm-2">
+							<input type="submit" class="btn btn-primary" value="수정완료">
+						</div>
+					</div>
+					
+				</form>
 			</div>
 		</div>
 	</div>
