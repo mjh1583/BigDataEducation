@@ -15,3 +15,6 @@ create table member(
 )default charset=utf8mb4;
 
 select * from member;
+
+insert into member values('gumi', '0217', '이방원', '남', '2000/01/01', 'lee@gamil.com', '010', '구미', '2021/02/03');
+insert into member values('admin', 'admin0217', '관리자', '', '', '', '', '', '');
