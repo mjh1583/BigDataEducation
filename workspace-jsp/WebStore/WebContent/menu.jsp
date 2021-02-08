@@ -32,7 +32,7 @@
 				</c:choose>
 						
 				<c:choose>
-					<c:when test="${sessionId ne 'admin' }">
+					<c:when test="${sessionId ne 'admin'}">
 						<li class="nav-item"><a href="${pageContext.request.contextPath}/products.jsp" class="nav-link">상품목록</a></li>
 					</c:when>
 					<c:otherwise>

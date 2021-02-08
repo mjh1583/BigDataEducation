@@ -29,7 +29,7 @@ public class BListCommand implements BCommand {  //게시판 리스트를 직접
 		boardList = bDao.getBoardList(pageNum, limit, items, text);  //DB에 저장되어 있는 실제 게시글 가져옴
 		
 		//총 페이지 수 구하기
-		int totalPage = 0;
+		int totalPage = 1;
 		
 		if(totalPage % limit == 0) {
 			totalPage = totalRecord / limit;

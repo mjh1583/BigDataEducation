@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.gov.mvc.command.BCommand;
 import kr.gov.mvc.command.BListCommand;
+import kr.gov.mvc.command.BWriteCommand;
+import kr.gov.mvc.command.BWriteFormCommand;
 
 @WebServlet("/BoardController")
 public class BoardController extends HttpServlet {
@@ -49,7 +51,7 @@ public class BoardController extends HttpServlet {
 		String viewPage = null;
 		
 		//command 패턴에 따라서 분기함
-		if(command.equals("/boardListAction.do")) {
+		if(command.equals("/boardListAction.do")) {  //DB에 저장되어 있는 모든 게시글 출력
 			System.out.println("-------------------------------------");
 			System.out.println("/boardListAction.do 페이지 호출");
 			System.out.println("-------------------------------------");
@@ -58,8 +60,25 @@ public class BoardController extends HttpServlet {
 			com.execute(request, response);
 			viewPage = "./board/list.jsp";
 		}
-		else if(command.equals("/boardWriteForm.do") ) {
+		else if(command.equals("/boardWriteForm.do") ) {  //회원의 로그인 정보 가져오는 부분
+			System.out.println("-------------------------------------");
+			System.out.println("/boardWriteForm.do 페이지 호출");
+			System.out.println("-------------------------------------");
 			
+			com = new BWriteFormCommand();
+			com.execute(request, response);
+			
+			viewPage = "./board/writeForm.jsp";
+		}
+		else if(command.equals("/boardWriteAction.do") ) {  //게시글 쓰고 DB에 저장하는 부분
+			System.out.println("-------------------------------------");
+			System.out.println("/boardWriteAction.do 페이지 호출");
+			System.out.println("-------------------------------------");
+			
+			com = new BWriteCommand();
+			com.execute(request, response);
+			
+			viewPage = "/boardListAction.do";
 		}
 		
 		//위의 분기문에서 설정된 view(.jsp)파일로 페이지 이동

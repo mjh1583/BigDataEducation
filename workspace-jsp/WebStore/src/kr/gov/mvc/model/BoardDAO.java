@@ -14,7 +14,7 @@ public class BoardDAO {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	private ArrayList<BoardDTO> dtos = null;
-	private static BoardDAO instance = new BoardDAO();
+	private static BoardDAO instance;
 	
 	public BoardDAO() {
 		
@@ -85,7 +85,9 @@ public class BoardDAO {
 				e2.printStackTrace();
 			}
 		}
+		
 		return dtos;
+		
 	}
 	
 	//board 테이블의 레코드 개수를 가져오는 메서드
@@ -112,7 +114,7 @@ public class BoardDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("getListCount()에러 " + e.getMessage());
+			System.out.println("getListCount()에러 : " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
@@ -120,11 +122,89 @@ public class BoardDAO {
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			} catch (Exception e2) {
-				System.out.println("getListCount()의 close() 호출 예외" + e2.getMessage());
+				System.out.println("getListCount()의 close() 호출 예외 : " + e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
 		
 		return count;
 	}
+	
+	//member 테이블에서 인증된 id의 사용자명을 가져오기
+	public String getLoginName(String id) {
+		String name = null;
+		String sql = "select * from member where id = ?";
+		
+		try {
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				name = rs.getString("name");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getLoginName() 예외발생 : " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("getLoginName()의 close() 호출 에러 : " + e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+		
+		return name;
+	}
+	
+	//board 테이블에 새로운 글 저장하는 메서드
+	public void insertBoard(BoardDTO boardDTO) {
+		/*
+		    num 		int 		not null 	auto_increment,  -- 게시글 순번
+			id 			varchar(10) not null,					 -- 회원 아이디
+			name		varchar(20) not null,					 -- 회원 이름
+			subject		varchar(100) not null,					 -- 게시글 제목
+			content		text		not null,					 -- 게시글 내용
+			registDay 	varchar(30),							 -- 게시글 등록 일자
+			hit			int,									 -- 게시글 조회수
+			ip			varchar(20),							 -- 게시글 등록 시 IP
+		 */
+		
+		try {
+			String sql = "insert into board values(?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardDTO.getNum());
+			pstmt.setString(2, boardDTO.getId());
+			pstmt.setString(3, boardDTO.getName());
+			pstmt.setString(4, boardDTO.getSubject());
+			pstmt.setString(5, boardDTO.getContent());
+			pstmt.setString(6, boardDTO.getRegistDay());
+			pstmt.setInt(7, boardDTO.getHit());
+			pstmt.setString(8, boardDTO.getIp());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("insertBoard() 예외발생 : " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("insertBoard()의 close() 호출 에러 : " + e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+	}
+	
 }

@@ -21,3 +21,5 @@ desc board;
 insert into webstoredb.board 
 (id, name, subject, content, registDay, hit, ip)
 values('gumi', '이순신', '설맞이', '새해복많이받으세요..', sysdate(), 1, '');
+
+delete from board where num = 3;
