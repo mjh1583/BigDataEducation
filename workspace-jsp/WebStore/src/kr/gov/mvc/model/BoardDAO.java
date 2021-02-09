@@ -73,7 +73,7 @@ public class BoardDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("getBoardList()에러 " + e.getMessage());
+			System.out.println("getBoardList()예외 " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
@@ -114,7 +114,7 @@ public class BoardDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("getListCount()에러 : " + e.getMessage());
+			System.out.println("getListCount()예외 : " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
@@ -155,7 +155,7 @@ public class BoardDAO {
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			} catch (Exception e2) {
-				System.out.println("getLoginName()의 close() 호출 에러 : " + e2.getMessage());
+				System.out.println("getLoginName()의 close() 호출 예외 : " + e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
@@ -201,10 +201,128 @@ public class BoardDAO {
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			} catch (Exception e2) {
-				System.out.println("insertBoard()의 close() 호출 에러 : " + e2.getMessage());
+				System.out.println("insertBoard()의 close() 호출 예외 : " + e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
+	}
+	
+	//선택된 게시글의 상세 내용을 가져오는 메서드
+	public BoardDTO getBoardByNum(int boardNum, int pageNum) {
+		BoardDTO boardDTO = null;
+		String sql = "select * from board where num = ?";
+		
+		try {
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNum);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				boardDTO = new BoardDTO();
+				boardDTO.setNum(rs.getInt("num"));
+				boardDTO.setId(rs.getString("id"));
+				boardDTO.setName(rs.getString("name"));
+				boardDTO.setSubject(rs.getString("subject"));
+				boardDTO.setContent(rs.getString("content"));
+				boardDTO.setRegistDay(rs.getString("registDay"));
+				boardDTO.setHit(rs.getInt("hit"));
+				boardDTO.setIp(rs.getString("ip"));
+			}
+			System.out.println("getBoardByNum() 수행완료");
+			
+		} catch (Exception e) {
+			System.out.println("getBoardByNum() 예외발생 : " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("getBoardByNum()의 close() 호출 예외 : " + e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+		
+		updateHit(boardNum);  //조회 수 증가시키는 메서드
+		
+		return boardDTO;
+	}
+
+	//조회 수 증가시키는 메서드
+	public void updateHit(int boardNum) {
+		
+		String sql = "select hit from board where num = ?";
+		int hit = 0;
+		
+		try {
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNum);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				hit = rs.getInt("hit") + 1;
+			}
+			
+			sql = "update board set hit = ? where num = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, hit);
+			pstmt.setInt(2, boardNum);
+			pstmt.executeUpdate();
+			
+			System.out.println("updateHit() 수행완료");
+			
+		} catch (Exception e) {
+			System.out.println("updateHit() 예외발생 : " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("updateHit()의 close() 호출 예외 : " + e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	//게시글 수정한 내용 업데이트
+	public void updateBoard(BoardDTO boardDto) {
+		
+		String sql = "update board set subject = ?, content = ?, registDay = ?, ip = ? where num = ?";
+		
+		try {
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, boardDto.getSubject());
+			pstmt.setString(2, boardDto.getContent());
+			pstmt.setString(3, boardDto.getRegistDay());
+			pstmt.setString(4, boardDto.getIp());
+			pstmt.setInt(5, boardDto.getNum());
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("updateBoard() 수행완료");
+			
+		} catch (Exception e) {
+			System.out.println("updateBoard() 예외발생 : " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("updateBoard()의 close() 호출 예외 : " + e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+		
 	}
 	
 }

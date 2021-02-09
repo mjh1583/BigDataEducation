@@ -52,7 +52,8 @@
 					<tr>
 						<td><%= notice.getNum() %></td>  
 						<!-- 게시글 제목을 클릭하면 해당 게시글이 보일 수 있도록 a태그 이용 -->
-						<td><a href="./boardViewAction.do?num=<%= notice.getNum() %>"><%= notice.getSubject() %></a></td>
+						<td><a href="./boardViewAction.do?num=<%= notice.getNum() %>&pageNum=<%= pageNum %>">
+								<%= notice.getSubject() %></a></td>
 						<td><%= notice.getRegistDay() %></td>
 						<td><%= notice.getHit() %></td>
 						<td><%= notice.getName() %></td>

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.gov.mvc.command.BCommand;
 import kr.gov.mvc.command.BListCommand;
+import kr.gov.mvc.command.BUpdateCommand;
+import kr.gov.mvc.command.BViewCommand;
 import kr.gov.mvc.command.BWriteCommand;
 import kr.gov.mvc.command.BWriteFormCommand;
 
@@ -78,6 +80,28 @@ public class BoardController extends HttpServlet {
 			com = new BWriteCommand();
 			com.execute(request, response);
 			
+			viewPage = "/boardListAction.do";
+		}
+		else if(command.equals("/boardViewAction.do")) {  //게시판에 있는 게시글 제목 클릭하여 상세내용 보는 부분
+			System.out.println("-------------------------------------");
+			System.out.println("/boardViewAction.do 페이지 호출");
+			System.out.println("-------------------------------------");
+			
+			com = new BViewCommand();
+			com.execute(request, response);
+			
+			System.out.println("boardViewAction의 execute() 실행 완료");
+			viewPage = "./board/view.jsp";
+		}
+		else if(command.equals("/boardUpdateAction.do")) {  //게시글 수정
+			System.out.println("-------------------------------------");
+			System.out.println("/boardUpdateAction.do 페이지 호출");
+			System.out.println("-------------------------------------");
+			
+			com = new BUpdateCommand();
+			com.execute(request, response);
+			
+			System.out.println("boardUpdateAction의 execute() 실행 완료");
 			viewPage = "/boardListAction.do";
 		}
 		
