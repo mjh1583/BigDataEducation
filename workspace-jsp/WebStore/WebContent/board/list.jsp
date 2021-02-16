@@ -52,8 +52,21 @@
 					<tr>
 						<td><%= notice.getNum() %></td>  
 						<!-- 게시글 제목을 클릭하면 해당 게시글이 보일 수 있도록 a태그 이용 -->
-						<td><a href="./boardViewAction.do?num=<%= notice.getNum() %>&pageNum=<%= pageNum %>">
-								<%= notice.getSubject() %></a></td>
+						<td>
+							<%
+								if(sessionId == null) {
+							%>
+							<a href="#" onclick="loginForm()"><%= notice.getSubject() %></a></td>
+							<%
+								}
+								else {
+							%>
+							<a href="./boardViewAction.do?num=<%= notice.getNum() %>&pageNum=<%= pageNum %>">
+									<%= notice.getSubject() %>
+							</a></td>
+							<%
+								}
+							%>
 						<td><%= notice.getRegistDay() %></td>
 						<td><%= notice.getHit() %></td>
 						<td><%= notice.getName() %></td>
@@ -115,6 +128,13 @@
 			/* 로그인이 되었다면 */
 			location.href = "./boardWriteForm.do?id=<%= sessionId %>";
 			
+		}
+		
+		function loginForm() {
+			if(${sessionId == null}) {
+				alert("로그인해야 게시글을 볼 수 있습니다.");
+				return false;
+			}
 		}
 	</script>
 </body>

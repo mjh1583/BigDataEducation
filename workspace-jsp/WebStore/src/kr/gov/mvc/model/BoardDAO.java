@@ -175,9 +175,16 @@ public class BoardDAO {
 			hit			int,									 -- 게시글 조회수
 			ip			varchar(20),							 -- 게시글 등록 시 IP
 		 */
-		
+		//auto_increment 부분을 다시 1로 재설정 해줌
+		String sql = "alter table board auto_increment = 1"; 
 		try {
-			String sql = "insert into board values(?, ?, ?, ?, ?, ?, ?, ?)";
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+			
+			sql = "insert into board values(?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			conn = DBConnection.getConnnection();
 			pstmt = conn.prepareStatement(sql);
@@ -322,7 +329,34 @@ public class BoardDAO {
 				e2.printStackTrace();
 			}
 		}
+	}  //updateBoard()
+	
+	//선택된 게시글 삭제 메서드
+	public void deleteBoard(int num) {
+		String sql = "delete from board where num = ?";
 		
-	}
+		try {
+			conn = DBConnection.getConnnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, num);
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("deleteBoard() 수행완료");
+			
+		} catch (Exception e) {
+			System.out.println("deleteBoard() 예외발생 : " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("deleteBoard()의 close() 호출 예외 : " + e2.getMessage());
+				e2.printStackTrace();
+			}
+		}	
+	}  //deleteBoard()
 	
 }

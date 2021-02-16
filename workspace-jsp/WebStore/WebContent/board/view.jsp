@@ -15,6 +15,7 @@
 	System.out.println(nowPage); */
 	
 	String sessionId = (String)session.getAttribute("sessionId");
+
 	String userId = notice.getId();
 	
 	/* System.out.println(sessionId);
@@ -86,7 +87,7 @@
 			<div class="form-group row">  <!-- 게시글 작성자가 맞다면, 수정과 삭제 가능 -->
 				<div class="col-sm-offset-2 col-sm-10">
 					<c:set var="userId" value="<%= notice.getId() %>" />
-					<c:if test="${sessionId == userId }">
+					<c:if test="${sessionId == userId || sessionId == 'admin'}">
 						<p><a href="./boardDeleteAction.do?num=<%= notice.getNum() %>&pageNum=<%= nowPage %>" 
 						class="btn btn-danger">삭제</a>
 						<input type="submit" class="btn btn-success" value="수정" />

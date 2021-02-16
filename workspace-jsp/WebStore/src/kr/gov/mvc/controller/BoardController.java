@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.gov.mvc.command.BCommand;
+import kr.gov.mvc.command.BDeleteCommand;
 import kr.gov.mvc.command.BListCommand;
 import kr.gov.mvc.command.BUpdateCommand;
 import kr.gov.mvc.command.BViewCommand;
@@ -102,6 +103,17 @@ public class BoardController extends HttpServlet {
 			com.execute(request, response);
 			
 			System.out.println("boardUpdateAction의 execute() 실행 완료");
+			viewPage = "/boardListAction.do";
+		}
+		else if(command.equals("/boardDeleteAction.do")) {  //게시글 삭제
+			System.out.println("-------------------------------------");
+			System.out.println("/boardDeleteAction.do 페이지 호출");
+			System.out.println("-------------------------------------");
+			
+			com = new BDeleteCommand();
+			com.execute(request, response);
+			
+			System.out.println("boardDeleteAction의 execute() 실행 완료");
 			viewPage = "/boardListAction.do";
 		}
 		
