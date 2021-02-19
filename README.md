@@ -1,8 +1,8 @@
 # BigDataEducation
 
-빅데이터 분석가 교육 과정 (2020.10.13 ~ 2021.02.17)
+빅데이터 분석가 교육 과정 (2020.10.13 ~ 2021.02.19)
 
-https://github.com/gumibigd/Educational-Materials
+빅데이터 교육 강사님의 Git Repository : https://github.com/gumibigd/Educational-Materials
 
 -자바(workspace) : 명품 JAVA Programming, 생능출판
 JAVA8, JDK11, Eclipse IDE
@@ -18,4 +18,8 @@ R 4.0.3 , R 3.6.0, RStudio
 
 -BootStrap(BootStrapLab) : WebStrom 이용 부트스트랩 살펴보기
 
+-Spring Boot(workspace-sb) : Spring Boot4 4.9.0
+
 -Git : Git Bash 이용
+
+//같은 교육을 들은 사람의 블로그 참조 : https://kjh95.tistory.com/
